@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                 %%
+%%	 This is ChenXin's template for Modal Logic    %%
+%%                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%   本宏包在tex文件中的名称：
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cx_ml}[2024/10/13 Xin's LaTeX package]
+
+
+
+% 模型: 花体
+\newcommand{\F}{\mathcal{F}}	
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\U}{\mathcal{U}}	% filter
+\newcommand{\X}{\mathcal{X}}
+
+
+
+
+%%   模型操作
+\newcommand{\dju}{\biguplus_i}			% 不交并
+\newcommand{\gsm}{\rightarrowtail}		% 生成子模型
+\newcommand{\bmi}{\twoheadrightarrow}	% bounded morphic image
+\newcommand{\meq}{\leftrightsquigarrow}	% modal equivalence
+\newcommand{\ue}{^\mathfrak{ue}}		% ultrafilter extension
+
+
+
+%% bisimulation 符号
+\newcommand{\bisimilar}{\;{\raisebox{.3ex}[0mm][0mm]{\ensuremath{\medspace \underline{\!\leftrightarrow\!}\medspace}}}\;}
+
+
+
+
+\newcommand{\bcirc}{\;\underline{\circ}\;}  % \circ 算子的对偶
+\newcommand{\botimes}{\underline{\otimes}}  % \otimes 算子的对偶
+
+
+%%  arrow logic 中的两个对偶算子
+\newcommand{\boxotimes}{\underline{\otimes}}
+\newcommand{\boxcric}{\ \underline{\circ}\ }
+
+% \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\\\\\ 两类 diamond 算子 及其对偶：
+\newcommand{\hdiamond}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (0,.5)--(1,.5);
+	\end{tikzpicture}\,	}
+}
+
+\newcommand{\vdiamond}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (.5,1)--(.5,0);
+	\end{tikzpicture}\, }
+}
+
+\newcommand{\boxv}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (.5,0)--(.5,1);
+	\end{tikzpicture}\, }
+}
+
+\newcommand{\boxh}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (0,.5)--(1,.5);
+	\end{tikzpicture}\, }
+}
+
+
+
+% compass operators
+\newcommand{\ndiamond}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (.5,1)--(.5,.5);
+\end{tikzpicture}	}
+
+\newcommand{\sdiamond}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (.5,.5)--(.5,0);
+\end{tikzpicture}	}
+
+\newcommand{\wdiamond}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (0,.5)--(.5,.5);
+\end{tikzpicture}	}
+
+\newcommand{\ediamond}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,.5)--(.5,0)--(1,.5)--(.5,1)--(0,.5);
+		\draw (.5,.5)--(1,.5);
+\end{tikzpicture}	}
+
+\newcommand{\boxn}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (.5,.5)--(.5,1);
+\end{tikzpicture}	}
+
+\newcommand{\boxs}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (.5,0)--(.5,.5);
+\end{tikzpicture}	}
+
+\newcommand{\boxw}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (0,.5)--(.5,.5);
+\end{tikzpicture}	}
+
+\newcommand{\boxe}{
+	\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) rectangle (1,1);
+		\draw (.5,.5)--(1,.5);
+\end{tikzpicture}	}
+
+
+
+% circle modalities
+\newcommand{\hcircle}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) circle (1em);
+		\draw (-.4,0)--(.4,0);
+	\end{tikzpicture}\,	}
+}
+
+\newcommand{\vcircle}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw (0,0) circle (1em);
+		\draw (0,-.4)--(0,.4);
+	\end{tikzpicture}\,	}
+}
+
+\newcommand{\xcircle}{
+	{\begin{tikzpicture}[scale=0.3] 
+		\draw[thin] (0,0) circle (1em);
+		\draw[thin] (-.3,.3)--(.3,-.3);
+		\draw[thin] (.3,.3)--(-.3,-.3);
+	\end{tikzpicture}\,}
+}

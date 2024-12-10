@@ -1,0 +1,69 @@
+\section*{Appendix}
+
+
+\appendix
+
+\section{Probability measures and distributions}
+
+
+
+
+
+
+Let $S$ be a nonempty set and $\mathcal{A}$ an algebra of subsets of $S$, 
+i.e., a set of subseteq of $S$ s.t. (i) $S \in \mathcal{A}$, 
+and (ii) if $H_1,H_2 \in \mathcal{A}$ then $\overline{H}_1, H_1 \cup H_2 \in \mathcal{A}$, 
+where $\overline{H}_1=S\setminus H_1$.
+
+
+
+A \textit{(finitely additive) probability measure} is a function $p \colon \mathcal{A} \to [0,1]$ such that:
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+    \item $p(S)=1$,
+    
+    \item $p(H_1 \cup H_2) = p(H_1)+p(H_2)$, 
+    whenever $H_1 \cap H_2 = \emptyset$.
+\end{enumerate}
+
+
+The triple $(S,\mathcal{A},p)$ is called a \textit{probability space}, 
+and elements of $\mathcal{A}$ are called \textit{measurable sets}.
+
+
+
+For any probability measure $p$ and $H,A \in \mathcal{A}$ such that $p(H)>0$, 
+the \textit{conditional probability} $p(A | H)$ is defined in the usual way, that is, 
+\[
+    p(A | H) = \dfrac{p(A \cap H)}{p(H)}. 
+    % \qquad (p(H)>0)
+\]
+It is known that the function $p(\cdot | H)$ is also a probability measure.
+
+
+\framebox[15cm]{
+    Bayes' Theorem: $p(A|B) = \dfrac{p(B|A) \cdot p(A)}{p(B)}$
+}
+
+
+
+For a finite set $S$, 
+a \textit{probability distribution} is any  function $d\colon S \to [0,1]$ such that 
+\[
+    \sum_{s \in S} d(s) = 1.
+\]
+Every probability distribution $d$ on a finite set $S$ induces a function $p$ on the $\wp(S)$:
+\[
+    p(H) = \sum_{s \in H} d(s),
+\]
+which is a (finitely additive) probability measure. 
+% 
+On the other hand,
+any probability measure $p$ on the power set of $S$ induces a distribution $d(s)=p(\{s\})$, 
+thus, 
+on finite sets ``measures = distributions''.
+
+
+
+\begin{df}dd
+    
+\end{df}

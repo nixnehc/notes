@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Bar.Cam.Gia2018}
+Pietro Baroni, Martin Caminada, and Massimiliano Giacomin.
+\newblock Abstract argumentation frameworks and their semantics.
+\newblock In Baroni et~al. \cite{HoFA2018.v1}.
+\newblock URL: \url{https://www.collegepublications.co.uk/handbooks/?00003}.
+
+\bibitem{HoFA2018.v1}
+Pietro Baroni, Dov~M. Gabbay, Massimiliano Giacomin, and Leendert {van der Torre}, editors.
+\newblock {\em Handbook of Formal Argumentation}, volume~1.
+\newblock College Publications, 2018.
+\newblock URL: \url{https://www.collegepublications.co.uk/handbooks/?00003}.
+
+\bibitem{Bar.Gia2009}
+Pietro Baroni and Massimiliano Giacomin.
+\newblock Semantics of abstract argument systems.
+\newblock In Rahwan and Simari \cite{AAI2009}, pages 25--44.
+\newblock \href {https://doi.org/10.1007/978-0-387-98197-0_2} {\path{doi:10.1007/978-0-387-98197-0_2}}.
+
+\bibitem{Dun1995}
+Phan~Minh Dung.
+\newblock On the acceptability of arguments and its fundamental role in nonmonotonic reasoning, logic programming and n-person games.
+\newblock {\em Artificial Intelligence}, 77(2):321--357, 1995.
+\newblock \href {https://doi.org/10.1016/0004-3702(94)00041-X} {\path{doi:10.1016/0004-3702(94)00041-X}}.
+
+\bibitem{Dun.Woo2009}
+Paul~E. Dunne and Michael Wooldridge.
+\newblock Complexity of abstract argumentation.
+\newblock In Rahwan and Simari \cite{AAI2009}, pages 85--104.
+\newblock \href {https://doi.org/10.1007/978-0-387-98197-0_5} {\path{doi:10.1007/978-0-387-98197-0_5}}.
+
+\bibitem{Dvo.Dun2018}
+W.~Dvorak and Paul~E. Dunne.
+\newblock Computational problems in formal argumentation and their complexity.
+\newblock In Baroni et~al. \cite{HoFA2018.v1}.
+\newblock URL: \url{http://hdl.handle.net/20.500.12708/29850}.
+
+\bibitem{AAI2009}
+Iyad Rahwan and Guillermo~R. Simari, editors.
+\newblock {\em Argumentation in Artificial Intelligence}.
+\newblock Springer, New York, 2009.
+\newblock \href {https://doi.org/10.1007/978-0-387-98197-0} {\path{doi:10.1007/978-0-387-98197-0}}.
+
+\end{thebibliography}

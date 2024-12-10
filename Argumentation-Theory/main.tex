@@ -1,0 +1,199 @@
+%% pdf 加密操作：
+%\special{pdf:encrypt ownerpw (2436946) userpw () length 128 perm 2052} 
+%///////////////////////////////////////////////////////////////////////////////
+\documentclass[12pt,a4]{article} % or report
+\usepackage{cx}
+\usepackage{cx_ml}
+
+\usepackage[open,openlevel=2,numbered]{bookmark}
+% \pdfbookmark[section]{Contents}{toc} % 在生成的 pdf 书签中添加 “目录”
+
+
+%% 设置全文脚注连续编号,latex默认每章重新清零编号。
+\counterwithout*{footnote}{section}
+
+%% 设置页边距：
+\usepackage{geometry}
+\geometry{left=3.5cm,right=3.5cm,top=1cm,bottom=2cm}
+
+
+%% 行距、段距设置
+%\linespread{1.2}     % 设置基本行距。
+% article 文档类的默认是1，即1.2倍字号大小；
+% ctexart 文档类的默认是1.3，即1.56倍字号大小。
+\setlength\parskip{5pt}   % 段间距
+
+
+%% 将默认的「标题」改为自定义内容
+%\renewcommand{\contentsname}{My list of contents}
+%\renewcommand{\listfigurename}{My list of figures}
+%\renewcommand{\listtablename}{My list of table}
+%\renewcommand{\bibname}{参考文献}
+%\renewcommand{\figurename}{图}
+%\renewcommand{\tablename}{表}
+
+
+%% 另一种花体
+%\usepackage{mathrsfs}   
+
+
+\usepackage{caption,subcaption}       % 可以用 \caption*{} 不把图片或表格进行编号 
+
+%% 生成封面图片, 参数 cc 表示垂直居中:
+% \usepackage[cc]{titlepic}  
+
+
+\usepackage{bm}            % 数学环境加粗字体
+
+%% 各章前添加一个目录:
+%\usepackage{titletoc}      
+
+
+
+%% 边注
+\usepackage[backgroundcolor=white,linecolor=magenta,textwidth=4em,textsize=footnotesize,disable]{todonotes}
+%% \todo{here's a comment in the margin!}
+%% \todo[inline, color=green!40]{This is an inline comment.}
+
+
+
+%% 勾勾+叉叉
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+
+
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{quiver}
+
+
+\newcommand{\dashto}{\dashrightarrow}
+\newcommand{\vsim}{\;|\hspace{-1ex}\sim}
+
+\usepackage{multirow}
+
+
+% 附录中定理环境
+\usepackage{chngcntr}
+\usepackage{apptools}
+\AtAppendix{\counterwithin{thm}{section}}
+
+
+%//////////////////////////////////////////////////////////////////////////////
+%% title page:
+\title{ 
+	Notes on Abstract Argumentation Theory
+}
+\author{
+	\textsc{Xin Chen}  
+	(\href{mailto:chenxin_hello@outlook.com}
+	{\textsf{chenxin\_hello@outlook.com}})
+}
+\date{Latest edit: \today}
+
+
+%///////////////////////////////////////////////////////////////////////////////
+\begin{document}
+
+
+\maketitle
+
+
+\input{sec-0/sec-0}
+\input{sec-1/sec-1}
+% \input{sec-2/sec-2}
+% \input{sec-dynamic/sec-dynamic}
+% \include{appendix/appendix}
+
+
+
+%#######################################
+%% \input 和 \include 的区别：
+%  \include 在读入⟨filename⟩之前会另起一页。有的时候我们并不需要这样。
+%  用 \input 命令，它纯粹是把文件里的内容插入。
+
+
+
+%///////////////////////////////////////////////////////////////////////////////
+\clearpage
+% plainurl 选项使得在文献列表中输出 doi/URL 链接，依赖 natbib 宏包
+\bibliographystyle{plainurl} 
+\bibliography{/Users/chenxin/Desktop/chenxin.bib}
+\addcontentsline{toc}{section}{References}
+
+
+
+%  输出索引
+% /////////////////////////////////////
+% \indexprologue{\ttfamily 「这里将出现在本文中的主要符号分类列出」}
+% \printindex 
+% %% 
+% \indexprologue{\ttfamily 「这里列出本文涉及的主要名词术语及其英译」}
+% \printindex[t] 
+%///////////////////////////////////////////////////////////////////////////////
+\end{document}
+
+
+% /////////////////////////////////////////////////////////////////////////////
+%    _
+%   ( \
+%    \ \
+%    / /                |\\
+%   / /     .-`````-.   / ^`-.
+%   \ \    /         \_/  {|} `o
+%    \ \  /   .---.   \\ _  ,--'
+%     \ \/   /     \,  \( `^^^
+%      \   \/\      (\  )
+%       \   ) \     ) \ \
+%        ) /__ \__  ) (\ \___
+%       (___)))__))(__))(__)))
+% /////////////////////////////////////////////////////////////////////////////
+
+
+
+% /////////////////////////////////////////////////////////////////////////////
+%  _                        _                
+% | |                      (_)               
+% | |        ___     __ _   _    ___    __ _ 
+% | |       / _ \   / _` | | |  / __|  / _` |
+% | |____  | (_) | | (_| | | | | (__  | (_| |
+% |______|  \___/   \__, | |_|  \___|  \__,_|
+% 				   __/ |                   
+% 				  |___/                    
+% /////////////////////////////////////////////////////////////////////////////
+
+
+% /////////////////////////////////////
+% ┳  ┓         ┓     • 
+% ┃  ┃ ┏┓┓┏┏┓  ┃ ┏┓┏┓┓┏
+% ┻  ┗┛┗┛┗┛┗   ┗┛┗┛┗┫┗┗
+%                   ┛  
+% /////////////////////////////////////
+
+
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣠⠤⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⡟⠢⣀⡰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣴⣿⣿⣿⣿⣿⣿⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢧⡀⠀⠀⠀⠀⠀⢀⢀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠤⠔⠒⠒⠉⠉⠉⠉⡉⠉⠉⠉⠁⠒⠒⠣⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠔⠊⠁⣀⢀⣀⠠⠴⠄⠒⠒⠒⡗⠒⠒⠒⠀⠄⢄⠄⣀⠀⠈⠑⠢⢄⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠅⠀⣀⠤⠒⠉⠁⠀⣀⣀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠉⠉⠒⢤⣠⡀⠈⠒⢄⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⡠⠊⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⢀⠜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠈⢣⡀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⡞⠀⠀⠀⠀⠀⠀⡠⠒⠊⠉⠒⠢⡀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⣠⠒⠉⠀⠀⠉⠲⡄⠀⠀⠀⠀⠀⠀⢣⠀⠀⠀⠀
+% ⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠈⡄⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⢠⠃⠀⠀⠀⡀⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀
+% ⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⡇⠀⠀⠢⠉⠁⠀⠀⡇⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠘⡔⠀⠀⠈⠀⠀⠀⢠⠁⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀
+% ⠀⠀⠀⠀⢃⠀⠀⠀⠀⠀⠀⠘⢄⠀⠀⠀⠀⢀⠔⠁⠀⠀⠀⠀⡘⡿⡀⠀⠀⠀⠀⠘⠢⣀⠀⠀⣀⠔⠃⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀
+% ⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠉⠁⠀⠀⠀⠀⠀⠀⡇⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠱⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠑⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⡇⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⡀⠀⠀⠀⠀⢀⠞⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠈⠢⡀⠀⠀⠀⠀⠀⡔⠢⠤⣀⡀⠀⠀⠀⠀⡇⡇⠇⠀⠀⠀⠀⣀⡠⡜⠊⠱⡈⠋⠀⠀⠀⢀⠔⠁⠂⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⢄⡀⠀⠘⠢⢄⣰⠅⠈⢉⠏⠒⢲⠓⠗⢲⠒⠊⠏⡩⠀⢀⡺⠔⠊⠁⠀⢀⡠⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠢⢄⣀⠀⠉⠉⠚⠒⠢⠼⠤⠤⠼⠤⠒⠚⠊⠉⠁⠀⢀⣀⠤⠓⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠒⠤⠤⠤⠤⠤⠤⠤⠤⠤⠔⠒⠒⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+% ⠀

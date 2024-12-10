@@ -1,0 +1,470 @@
+\section{Some extensions}
+%///////////////////////////////////////
+
+
+
+% /////////////////////////////////////////////////////////////////////////////
+\subsection{Preference-based AF}
+
+
+
+Several works generalizing Dung's framework to handle preferences over arguments have been proposed. 
+% (Amgoud and Cayrol 1998, 2002; Amgoud and Vesic 2011, 2014; Cyras 2016; Silva, Sa ́, and Alcaˆntara 2020).
+
+
+
+\begin{df}[Preference-based Argumentation Frameworks, PAFs]
+    A \textit{preference-based argumentation framework} (PAF) is a triple $(Ar,\to,>)$ such that $(Ar,\to)$ is an AF and $>$ is a strict partial order on $Ar$ (i.e. an irreflexive, asymmetric and transitive relation), 
+    called \textit{preference relation}.    
+\end{df}
+
+
+
+For any $a,b \in Ar$, 
+$a > b$ means that $a$ is better than $b$ for the agent. 
+
+
+
+The preference in a PAF $(Ar,\to,>)$ working as follows: 
+classical argumentation semantics are used to obtain the extensions of the underlying AF $(Ar,\to)$, 
+and then the preference relation $>$ is used to obtain a preference relation $\sqsupseteq$ over such extensions, 
+so that the \textit{best extensions} w.r.t. $\sqsupseteq$ are eventually selected.
+
+
+There have been different proposals to determine the best extensions, 
+corresponding to different criteria to define $\sqsupseteq$ as explained in the following definition.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% /////////////////////////////////////////////////////////////////////////////
+\subsection{Value-based AF}
+
+
+the motivation behind VAFs (value-based argumentation frameworks) is to offer an explanatory mechanism accounting for choices between distinct justifiable collections, 
+$S$ and $T$, 
+which are not collectively acceptable, 
+i.e., $S$ and $T$ may be admissible under Dung's semantics, 
+however, $S \cup T$ fails to be. 
+
+
+
+
+
+
+%///////////////////////////////////////////////
+\section{Probabilistic AF}
+
+Recently, 
+there are has been an increasing interest in modeling uncertainty in argumentation. 
+% 
+This has been carried out by combining probability theory with formal argumentation.
+% 
+The extension of Dung's abstract argumentation framework with probability theory is called \textit{probabilistic argumentation framework}.
+
+
+
+
+In general a probabilistic argumentation framework consists of probabilistic arguments and probabilistic attacks  (Li, Oren, and Norman 2011; Fazzinga, Flesca, and Parisi 2015; Fazzinga, Flesca, and Furfaro 2019).
+% 
+As shown in \cite{Man.Bis2020},%\cite[p.214]{Man.Bis2020} 
+however, 
+an argumentation framework with probabilities on both arguments and attacks can be transformed into an equivalent one with certain attack relations (i.e. the probability of each attack is $1$).\footnote{
+    The equivalent transformation between those two kinds of probabilistic AFs has linear complexity.
+}
+Hence, 
+for the sake of brevity, 
+in the section we only focus on probabilistic argumentation frameworks where only arguments are uncertain.
+
+
+
+% \begin{df}[PrAFs \cite{Li.Ore.Nor2012}]
+%     A \textit{probabilistic argumentation framework} (PrAF) is a tuple 
+%     \[
+%         (Ar,\to,p,p^\to)
+%     \]
+%     where $(Ar,\to)$ is an AF, 
+%     $p$ and $p^\to$ are, respectively, 
+%     functions assigning a non-zero probability value to each argument in $Ar$ and attack in $\to$, 
+%     that is,
+%     $p \colon Ar \to (0,1] \cap \mathbb{Q}$ and 
+%     $p^\to\!: \to \; \to (0,1] \cap \mathbb{Q}$.
+% \end{df}
+
+
+\begin{df}[PrAFs]
+    A \textit{probabilistic argumentation framework} (PrAF) is a tuple 
+    \[
+        PAF = (Ar,\to,p)
+    \]
+    where $(Ar,\to)$ is an argumentation framework and
+    $p$ is a function assigning a non-zero probability value to each argument in $Ar$,
+    that is,
+    $p \colon Ar \to (0,1] \cap \mathbb{Q}$. 
+\end{df}
+
+
+
+\begin{remark}
+    In some literature, 
+    for instance ,
+
+    
+    the probability function is just $p \colon Ar \to (0,1]$.
+\end{remark}
+
+
+
+$p(a)$ is the probability that $a$ is actually present in the argumentation framework.
+
+
+
+
+\vspace{1.5em}
+\textit{justification perspective}:
+$P(A)$ is treated as the probability that $a$ is a justified point and therefore should appear in the graph, 
+and $1-P(A)$ is the probability that $A$ is not a justified point and so should not appear in the graph.
+
+\vspace{1.5em}
+
+
+
+Basically, 
+the value assigned by $p$ to an argument $a$ represents the probability that $a$ actually occurs, 
+% whereas the value assigned by $p^\to$ to a defeat $\langle a,b \rangle$ represents the conditional probability that $a$ defeats $b$ given that both $a$ and $b$ occur.
+moreover, 
+every attack $a \to b$ occurs with conditional prob- ability 1, 
+that is, 
+$a$ attacks $b$ whenever both $a$ and $b$ occur.
+
+
+
+The meaning of a PrAF is given in terms of \textit{possible worlds}. 
+Given a PrAF $\mathcal{PF}=(Ar,\to,p)$, 
+a \textit{possible world} $w$ of $\mathcal{PF}$ is an AF $w=(Ar',\to')$ such that 
+$w$ is the restriction of $(Ar,\to)$ to $Ar'$, 
+that is, 
+$Ar' \subseteq Ar$ and $\to' \;=\; \rightarrow \cap (Ar'\times Ar')$. 
+% 
+The set of all possible worlds of $\mathcal{PF}$ is denoted as $pw(\mathcal{PF})$.
+
+
+
+\begin{df}[Subgraph]
+\label{def: subgraph}
+    For any given PrAF $\mathcal{PF}=(Ar,\to,p)$,     
+    an AF $G = (Ar',\to')$ is a \textit{subgraph} $G$ of $\mathcal{PF}$,  $G \sqsubseteq \mathcal{PF}$ in symbol, 
+    if $G$ is the restriction of the underlying AF $(Ar,\to)$ to $Ar'$, 
+    i.e., 
+    $Ar' \subseteq Ar$ and $\to' \;= (Ar'\times Ar')\; \cap \to$. 
+    % 
+    The set of all subgraphs of $\mathcal{PF}$ is denoted as $\mathsf{sub}(\mathcal{PF})$.
+\end{df}
+
+
+\begin{remark}
+    \textit{possible world}  
+
+
+
+    In literature, 
+    the \textit{subgraph} in Def.~\ref{def: subgraph} is also called a \textit{full subgraph} \cite{Hun2013,Dod.Wol2014}.
+    % 
+    Obviously, 
+    every $Ar' \subseteq Ar$ induces a unique (full) subgraph, 
+    and the number of subgraphs is equals to $|\wp(Ar)|$.
+\end{remark}
+
+
+
+Thus, 
+an argument $a \in Ar$ is viewed as a probabilistic event which is independent from the other events associated with other arguments 
+$a \not=b \in Ar$.
+
+
+
+
+
+
+use the probability distribution over arguments to generate a probability distribution over subgraphs of the original argument framework. 
+% 
+Using the subgraphs, 
+we can then explore the notions of probability distributions over admissible sets, extensions, and inferences.
+
+
+
+
+
+The intuition hereby is as follows: 
+for $a \in Ar$, 
+$p(a)$ is the probability that $a$ belongs to an arbitrary possible world (full subgraph) of $\mathcal{PF}$; 
+while $1-p(a)$ is the probability that $a$ does not exist in an arbitrary possible world (full subgraph). 
+
+
+(using the justification perspective \cite{Hun2012}, 
+where $p(a)$ means the probability that $a$ is justified in appearing in the graph) 
+
+
+
+\vspace{1.5em}
+
+
+We can use the probability assigned to each argument to generate a probability distribution over the subgraphs. 
+So each subgraph can be viewed as an ``interpretation'' of what the argument graph should be. 
+If all the arguments have probability $1$, 
+then the argument graph itself has probability $1$, 
+and that is the only interpretation we should consider (using the constellations approach). 
+But, if one or more arguments has a probability less than $1$, 
+then there will be multiple ``interpretations''. 
+% 
+So for instance, 
+if there is exactly one argument $a$ in the framework $G$ with probability less than $1$, 
+then there are two “interpretations”, 
+the first with $a$, 
+and the second without $a$. 
+% 
+So using the justification perspective, 
+with the constellations approach, 
+we can treat the set of subgraphs of a $G$ as a \textit{sample space}, 
+where one of the subgraphs is the ``true'' argument graph.
+
+
+\vspace{1.5em}
+
+
+
+
+\begin{df}
+    The \textit{interpretation} for a PrAF $\mathcal{PF}=(Ar,\to,p)$ is  function 
+    % {\color{purple} probability distribution function} 
+    $I$ over the set $pw(\mathcal{PF})$. 
+    % 
+    Each $w \in pw(\mathcal{PF})$ is assigned by $I$ the probability 
+    \[
+        I(w) = \left( \prod_{a\in Arg(w)} p(a) \right) 
+        \cdot
+        \left( \prod_{a \in Ar \setminus Arg(w)} (1 - p(a)) \right)
+    \]
+    where $Arg(w)$ is the set of arguments in $w$.
+\end{df}
+
+
+Thus, 
+the probability of a subgraph captures the degree of certainty that the subgraph contains exactly the arguments that are regarded as holding.
+
+
+\begin{thm}[\cite{Li.Ore.Nor2011}, revised]
+    Let $\mathcal{PF}=(Ar,\to,p)$ be a PrAF, 
+    the function $I$ is a \textit{probability distribution} on the set $pw(\mathcal{PF})$, 
+    i.e., 
+    $I$ is a function such that 
+    $\sum_{w \in pw(\mathcal{PF})} I(w) = 1$.
+\end{thm}
+\begin{proof}
+    By induction on the size of $Ar$, 
+    see the proof of Proposition 3 in \cite[p.~60]{Hun2013} for details.
+\end{proof}
+
+
+
+
+\begin{example}
+    Considering following PrAF 
+    \[G \qquad 
+    \begin{tikzcd}
+        a_1/ 1 \arrow[r, bend left=35] & a_2 / 1 \arrow[l, bend left=35] & a_2 / 0.8 \arrow[l]
+    \end{tikzcd}\]
+    % 
+    Clearly $G$ has eight subgraphs, 
+    then we get the following probability distribution over the subgraphs:
+    % 
+    \[
+      \renewcommand{\arraystretch}{1.3} % 行距
+      \renewcommand{\arraycolsep}{1.2em} % 列距
+    \begin{array}{ccccccccc}
+        \hline 
+        & G_1 = G & G_2 & G_3 & G_4 & G_5 & G_6 & G_7 & G_8 \\ 
+        
+        I 
+        & 0.8 & 0.2 & 0  \\
+        \hline
+    \end{array}
+    \]
+\end{example}
+
+
+
+
+If all the arguments in a PrAF $G$ have probability of $1$, 
+then the only subgraph of $G$ to have non-zero probability is itself, 
+and so it has probability $1$. 
+% 
+At the other extreme,
+if all the arguments in a probabilistic argument graph $G$ have probability of $0$, 
+then the empty graph has probability $1$.
+
+
+
+
+
+
+
+
+\vspace{3em}
+
+
+Given a PrAF  $G = (Ar,\to,p)$, 
+and a set of arguments $\Gamma \subseteq Ar$, 
+we want to calculate the probability that $\Gamma$ is an $\sigma$--extension, 
+which we denote by $P^\sigma_G(\Gamma)$,
+where $\sigma \in \{ad, co, pr, gr, st\}$. 
+For this, we take the sum of the probability of the full subgraphs for which $\Gamma$ is an $\sigma$--extension.
+
+
+
+The analogous \textit{credulous acceptance problem} in the context of a probabilistic AF, 
+i.e. the probability that a given set of arguments is an extension under a given semantics, is the following.
+
+
+\[
+    P_{PAF}^{\sigma,\circ} (a)
+\]
+
+
+
+
+
+
+
+\begin{df}[Probabilistic credulous acceptance]
+    Given a PrAF $\mathcal{PF}=(Ar,\to,p)$, 
+    an argument $a \in Ar$, 
+    the probability $PrCA^\sigma_\mathcal{PF}(g)$ that $g$ is credulously acceptable w.r.t. semantics $\sigma$ is 
+    \[
+        PrCA^\sigma_\mathcal{PF}(g)
+            = 
+        \sum_{w \;\in\; pw(\mathcal{PF}) ~\land~ \exists E \;\in\; \sigma(w) ~s.t.~  g\; \in\; E} I(w).
+    \]
+\end{df}
+
+
+The probability that an argument $g$ is credulously accepted according to a semantics $\sigma$ is defined as the sum of the probabilities of the possible worlds  of a PrAF for which argument $g$ is credulously accepted.
+
+
+
+
+
+Computing $PrCA^\sigma_\mathcal{PF}(g)$ is $FP^{\#P}$--hard for all semantics $\sigma \in \{\mathcal{GR,PR,ST},\mathcal{STT}\}$ [Fazzinga, Flesca, and Furfaro 2018], 
+where $FP^{\#P}$ is the class of functions computable by a polynomial-time Turing machine with a $\#P$ oracle.
+
+
+
+
+
+Probabilistic credulous acceptance does not express the probability that a given argument is accepted. 
+% 
+However, 
+a new problem, called \textit{Probabilistic Acceptance}, 
+was given in \cite{Alf.Cal.Gre.Par.Tru2020} can be intuitively stated as follows.
+% 
+Given a probabilistic AF, 
+a semantics $\sigma$ and a goal argument $g$, 
+computing the probability that $g$ is accepted. 
+
+
+
+\begin{df}[Probabilistic Acceptance]
+    Given a PrAF $\mathcal{PF}=(Ar,\to,p)$ and an argument $g \in Ar$, 
+    the probability $PrA^\sigma_\mathcal{AF}(g)$ that $g$ is acceptable w.r.t. semantics $\sigma$ is
+    \[
+        PrA^\sigma_\mathcal{AF}(g)
+        =
+        \sum_{w \in pw(\mathcal{PF}) \land E \in \sigma(w) \land g \in E} I(w) \cdot Pr(E,w,\sigma)
+    \]
+    where $Pr(\cdot,w,\sigma)$ is a $PDF$ over the set $\sigma(w)$.
+\end{df}
+
+
+
+
+
+
+
+\subsection{the shortcomings of Independence Assumption}
+
+
+Whilst assuming independence brings some advantages, 
+there are situations where it is not appropriate as it does not capture the uncertainty correctly. 
+To illustrate this, 
+we consider the following example.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{3em}
+
+\dotfill
+
+
+
+
+epistemic approach to probabilistic argumen- tation [Thimm, 2012; Hunter and Thimm, 2014; Baroni et al., 2014; Hunter and Thimm, 2017].
+
+
+
+
+
+% /////////////////////////////////////
+\subsection{Other approaches in probabilistic argumentation}
+
+
+combining the epistemic and the constellation approach
+
+apply probabilistic techniques in order to learn argumentation frameworks from data
+
+model changing beliefs in argumentation
+
+
+
+

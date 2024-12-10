@@ -1,0 +1,192 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                   %%
+%%	 This is ChenXin's template      %%
+%%                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%   本宏包在tex文件中的名称：
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cx}[2022/07/15 ChenXin's LaTeX package]
+
+
+%%					1. 一些预置宏包
+%%------------------------------------------------------------------------------
+%% 各类数学宏包
+\usepackage{amsmath}
+\usepackage{amsthm}	
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{wasysym}  % 该包使得\Diamond，\Box比较好看，更敦厚些
+\usepackage{stmaryrd} %% \llbracket \rrbracket
+
+
+%% 负责在表格中画虚线的包 \hdashline \vddashline 
+\usepackage{arydshln} 
+
+
+%% 定制列表环境
+\usepackage{enumitem}
+
+
+%% 使用外部超链接
+\usepackage{url} 
+
+%% 交叉引用
+\usepackage{hyperref}
+% \hypersetup{
+% 	colorlinks=true,
+% 	linkcolor=purple,
+% 	filecolor=green,      
+% 	urlcolor=brown,
+% 	citecolor=cyan,
+% }
+
+
+%%	图片设置
+\usepackage{graphicx} 	%插入图片的宏包
+\usepackage{float} 		%设置图片浮动位置的宏包
+
+
+\usepackage{times}  %% % 使用Times New Roman字体
+
+
+%% 页面多栏,用于实现在同一页中实现不同的分栏
+\usepackage{multicol}
+
+%% 注脚宏包
+\usepackage{footmisc}
+
+
+%% 文本框
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+
+
+
+%%           	字体设定（超级麻烦！！）
+%%-------------------------------------------------
+%% 英文
+%\usepackage{fontspec}
+%\setmainfont[Mapping=text-text]{Times New Roman}
+%\setsansfont[Mapping=text-text]{Tahoma}
+%\setmonofont{Courier New}
+
+%%中文
+\usepackage[CJKchecksingle,CJKnumber]{xeCJK}
+\setCJKmainfont{Songti SC}[ BoldFont = Songti SC Black , ItalicFont = Kai ]
+\setCJKsansfont{Songti SC}
+\setCJKmonofont{Songti SC}
+
+
+
+%%    		  定义数学环境样式
+%%----------------------------------------------
+%%  定理、定义、引理和推论等都统一连续编号，采用章号作前缀
+%\theoremstyle{remark}
+%% \theoremstyle{style} 中， style 参数有3种：
+			% plain：定理名称是正体，定理内容是斜体
+			% definition：定理名称和内容都是正体
+			% remark：定理名称是斜体，定理内容是正体
+					
+%\newtheoremstyle{mythm}{3pt}{3pt}{}{}{\bfseries}{}{5mm}{}
+%\theoremstyle{mythm}
+
+
+%%% 以下命令设置定理类环境的结束符号，本列中为 $\dashv$
+\makeatletter
+\def\@endtheorem{\hfill $ \dashv $\endtrivlist\@endpefalse }
+\makeatother
+
+
+% 定义新的定理样式
+\newtheoremstyle{cx}% 请替换为你喜欢的样式名
+{1em}% 上间距
+{0.8em}% 下间距
+{\mdseries}% 定理内容的字体样式
+{}% 缩进量
+{\bfseries}% 定理标题的字体样式
+{}% 标题后的标点符号
+{0.5em}% 标题与内容之间的距离
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% 定理头部的额外规范
+
+% 创建新的定理环境
+\theoremstyle{cx}
+					
+%\newtheorem{thm}{\bf{定理}}[chapter]
+%\newtheorem{def.}[thm]{\bf{定义}}
+%\newtheorem{df}[thm]{\bf{定义}}
+%\newtheorem{lemma}[thm]{\bf{引理}}
+%\newtheorem{corollary}[thm]{\bf{推论}}
+%\newtheorem{prop}[thm]{\bf{命题}}
+%\newtheorem{example}[thm]{\bf{例}}
+%\newtheorem{note}[thm]{\textit{注记}}
+%\newtheorem{remark}[thm]{\textit{注意}}
+%\newtheorem{fact}[thm]{\textit{事实}}
+%\newtheorem{question}[thm]{\textit{思考}}
+
+% 正文中的定理类环境
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{df}[thm]{Definition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{note}[thm]{Note}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{question}[thm]{Question}
+
+
+
+
+
+
+%%  证毕符号(QED)改成黑色的正方形
+\renewcommand{\qedsymbol}{$\blacksquare$}    
+
+
+%% 将 proof 改为中文 「证明」
+%\renewcommand\proofname{证明}
+
+
+
+% /////////////////////////////////////
+%%  一些数学环境中的逻辑符号，常用符号的自定义设置
+
+%% 正文和数学环境中的 iff 符号：短的粗双箭头
+\newcommand{\iffs }{\text{ $\;\Leftrightarrow\;$ \;}}
+
+
+
+%%  数学环境中的破折号
+\mathchardef\mhyphen="2D
+\newcommand{\pzhm}{\mhyphen}
+
+
+%% 中文破折号
+\newcommand{\pzh}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
+
+
+%% 中文文档类小结标题左对齐
+%\CTEXsetup[format={\Large\bfseries}]{section}
+
+
+%%                            画图设置 DFA
+% /////////////////////////////////////
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, positioning, shapes.geometric,calc,patterns}
+\usetikzlibrary{decorations.pathmorphing}
+% \usetikzlibrary{backgrounds} % 可以通过 show background rectangle 命令显示图片边界
+\usetikzlibrary{cd} %tikz画交换图
+
+\tikzset{
+	modal/.style={>=stealth',shorten >=1pt,shorten <=1pt,auto,
+		node distance=1.5cm,semithick},
+	world/.style={circle,draw,minimum size=1cm,fill=gray!15},
+	point/.style={circle,draw,fill=black,inner sep=0.5mm},
+	reflexive/.style={->,in=120,out=60,loop,looseness=#1},
+	reflexive/.default={5},
+	reflexive point/.style={->,in=135,out=45,loop,looseness=#1},
+	reflexive point/.default={25},
+}
