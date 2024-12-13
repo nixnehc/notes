@@ -1,9 +1,7 @@
-\section{Abstract Argumentation Theory}
-\label{sec: AAT}
+\section{Abstract Argumentation}
+\label{sec: abstract-argumentation}
 
-
-
-This section is devoted to the \textit{abstract argumentation theory} introduced in the seminal paper by  Dung \cite{Dun1995}.
+This section is devoted to the \textit{abstract argumentation theory} \zh{抽象论辩理论} introduced in the seminal paper \cite{Dun1995} by  Dung.
 % 
 This formalism is based on the idea that arguments are defeasible entities which may attack each other and whose acceptance is subject to a given reasonable criterion (called \textit{semantics}).
 % 
@@ -18,14 +16,14 @@ That is,
 once the argumentation framework has been constructed, 
 how to determine which arguments to accept or reject?
 % 
-To answer this kind of questions corresponding to define an \textit{argumentation semantics}.
+To answer this kind of questions corresponding to define an \textit{argumentation semantics} \zh{论辩语义}.
 %
 % 
 By and large, 
 two kinds of approaches for argumentation semantics are available in the literature: 
 \begin{enumerate}[itemsep=5pt,parsep=0pt,leftmargin=3em,topsep=5pt,label=(\arabic*)]
-    \item the \textit{extension}-based approach (proposed in Dung's original paper \cite{Dun1995}), and
-    \item the \textit{labelling}-based approach.
+    \item the \textit{extension}--based approach \zh{基于外延的方法}, proposed in Dung's original paper \cite{Dun1995}, and
+    \item the \textit{labelling}--based approach \zh{基于标签的方法}.
 \end{enumerate}
 % 
 In this note, 
@@ -134,8 +132,8 @@ A first investigation of the connections between defeat status assignments and e
 
 
 % /////////////////////////////////////////////////////////////////////////////
-\subsection{Argumentation frameworks}
-\label{subsec: AFs}
+\subsection{Abstract Argumentation frameworks}
+\label{subsec: abstract-argumentation-frameworks}
 
 
 An (abstract) argumentation framework is nothing, 
@@ -148,93 +146,79 @@ An argument is an abstract entity whose role is solely determined by its relatio
 
 
 
-\begin{df}[Argumentation frameworks]
-    An \textit{argumentation framework} (AF) is a pair 
+\begin{df}[Argumentation frameworks, AFs]
+    An \textit{argumentation framework} \zh{论辩框架} is a pair 
     \[
-        AF = (Ar,\to)
+        {\color{purple} AF = (Arg,\att)}
     \]
-    where $Ar$ is a non-empty set of arguments, 
-    and $\to$ is a binary relation on $Ar$, 
-    i.e.,
-    $\to\; \subseteq A \times A$.
+    where $Arg$ is a non--empty set of arguments, 
+    and $\att \;\subseteq Arg \times Arg$ is a binary relation on $Ar$.
 \end{df}
 
 
 
-Given an AF $AF=(Ar,\to)$, 
-let $a,b \in Ar$, 
-we say that $a$ \textit{attacks/defeats} $b$ (accordingly, $a$ is an \textit{attacker} of $b$) iff $a \to b$ holds.
+Given an AF $AF=(Arg,\att)$, 
+let $a,b \in Arg$, 
+we say that $a$ \textit{attacks/defeats} $b$ (accordingly, $a$ is an \textit{attacker} of $b$) iff $a \att b$ holds.
 % 
-For any $X \cup \{a\} \subseteq Ar$, 
+For any $X \cup \{a\} \subseteq Arg$, 
 then we say that $X$ \textit{attacks} $a$, 
-denoted as $X \to a$, 
-if there exists $b \in X$ such that $b \to a$.
+denoted as {\color{purple} $X \att a$}, 
+if there exists $b \in X$ s.t. $b \att a$.
 % 
 Likewise, 
 we say that $a$ \textit{attacks} $X$, 
-written as $a \to X$, 
-if there is $b \in X$ such that $a \to b$.
+written as {\color{purple} $a \att X$}, 
+if there is $b \in X$ s.t. $a \att b$.
 % 
-% 
-For $a \in Ar$, 
-we define $a^-$ and $a^+$ as follows:
+For $a \in Arg$, 
+we define the sets $a^-$ and $a^+$ as follows: \zh{各种攻击关系}
 \[
 \begin{array}{rll}
-    a^- &\coloneqq& \{b \in Ar \mid b \to a\},  \\
+    {\color{purple} a^-} &\coloneqq& \{b \in Arg \mid b \att a\},  \\
     
-    a^+ &\coloneqq& \{b \in Ar \mid a \to b\}.  \\
+    {\color{purple} a^+} &\coloneqq& \{b \in Arg \mid a \att b\}.  \\
 \end{array}
 \]
-Those two operations can be extended to any subset $X \subseteq Ar$ by
+Those two operations can be extended att any subset $X \subseteq Arg$ by
 \[
-    X^\circ   = \bigcup_{a \in X} a^\circ 
+    {\color{purple} X^\pm}   = \bigcup_{a \in X} a^\pm 
     \qquad
-    \circ \in\{+,-\}.
+    \pm \in\{+,-\}.
 \]
 
 
 
-
-
-The attack relations between argument(s) aforementioned are summarized by Table~\ref{tab: attack-relation}. 
+The attack relations between argument(s) aforementioned are summarized in Table~\ref{tab: attack-relation}. 
 % In what follows, 
-% we will use $\not\to$ to denote the negation of $\to$.
-
-
+% we will use $\not\att$ to denote the negation of $\att$.
 
 % attack relationships
 \begin{table}[ht!]
     \centering
     \caption{The attack relations between argument(s)}
-    \label{tab: attack-relation}
-    % 
-    \renewcommand{\arraystretch}{1.3}
+    \label{tab: attack-relation} 
+    \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{l||ll}
     \hline
     \multicolumn{1}{c||}{notation} & 
     \multicolumn{1}{c}{meaning} \\
     \hline
 
-    $a \to b$ & 
+    $a \att b$ & 
     $a$ attacks $b$  \\
 
-    $a \to X$ &  
-    $a$ attacks $X$ ($\exists b \in X: a \to b$) \\ 
+    $a \att X$ &  
+    $a$ attacks $X$ ($\exists b \in X: a \att b$) \\ 
 
-    $X \to a$  &  
-    $X$ attacks $a$  ($\exists b \in X: b \to a$) \\
+    $X \att a$  &  
+    $X$ attacks $a$  ($\exists b \in X: b \att a$) \\
 
     
-    $X \to Y$ &
+    $X \att Y$ &
     $X$ attacks $Y$ 
-    ($\exists a \in X, \exists b \in Y: a \to b$)  \\
+    ($\exists a \in X, \exists b \in Y: a \att b$)  \\
 
-    % $\dashrightarrow$  \\ 
-    % $a \dashto b$ &  \\
-
-    % $a \leadsto  b$  \\
-
-    % $a \twoheadrightarrow  b$  \\
     \hline
 \end{tabular}
 \end{table}
@@ -253,41 +237,9 @@ The attack relations between argument(s) aforementioned are summarized by Table~
 % \end{df}
 
 
-
-
-
-
-
-
 % \vspace{3em}
 % Doing abstract argumentation theory means, essentially, 
 % to study specific properties of subsets of the set of arguments in a given argumentation framework.
-
-
-
-
-% \begin{df}[Conflict-freeness, Acceptability and Admissibility] 
-%     Let $\mathcal{AF} = (A,\to)$ be an argumentation framework, and $X \subseteq A$:
-%     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
-%         \item 
-%         A set $X$ of arguments is said to be \todo{无冲突} {\color{purple} \textit{conflict-free}} if there are no arguments $a$ and $b$ in $X$ s.t. $a$ attacks $b$, 
-%         formally, 
-%         $\neg\exists a,b \in X: a \to b$. 
-
-%         \item 
-%         An argument $a$ is {\color{purple} \textit{acceptable}} w.r.t. a set $X$ of arguments iff for each argument $b$: 
-%         if $b$ attacks $a$ then $b$ is attacked by $X$.
-
-%         \item 
-%         A conflict-free set of arguments $X$ is {\color{purple} \textit{admissible}} iff each argument in $X$ is acceptable w.r.t. $X$.
-%     \end{enumerate}
-% \end{df}
-
-
-
-
-
-
 
 
 
@@ -299,10 +251,6 @@ The attack relations between argument(s) aforementioned are summarized by Table~
 
 
 
-
-
-
-
 % \vspace{1.5em}
 
 % a simple principle: 
@@ -311,22 +259,18 @@ The attack relations between argument(s) aforementioned are summarized by Table~
 
 
 
-
----
-
-
 \begin{df}[Defense]
-    Let $AF=(Ar,\to)$ be an AF and $X \subseteq Ar$. 
+    Let $AF=(Arg,\att)$ be an AF and $X \subseteq Arg$. 
     % 
-    The set $X$ \textit{defends} $a \in Ar$ 
-    (or, $a$ \textit{acceptable} w.r.t. $X$) 
+    The set $X$ \textit{defends} $a \in Arg$ 
+    (or, ``$a$ \textit{acceptable} w.r.t. $X$''\footnote{
+    This is the original terminology in Dung's paper \cite{Dun1995}.
+    }) 
     iff 
-    $\forall b \in Ar:b \to a \Rightarrow X \to b$
-    (or equivalently, $\forall b \in a^- : X \to b$, 
-    where $a^-$ is the set of attackers of $a$).
-    \footnote{
-        The original terminology in Dung's paper \cite{Dun1995} was that ``$a$ is \textit{acceptable} w.r.t. $X$''.
-    }
+    $\forall b \in Arg:b \att a \Rightarrow X \att b$
+    (or equivalently, $\forall b \in a^- : X \att b$, 
+    where $a^-$ is the set of attackers of $a$). 
+    \zh{辩护}
 \end{df}
 
 
@@ -335,7 +279,7 @@ The attack relations between argument(s) aforementioned are summarized by Table~
 According to vacuous truth,
 if $a^- = \emptyset$
 (such $a$ are called \textit{initial arguments}, 
-the set of initial arguments of an AF $AF$ denoted as $\mathcal{NI}(AF)$, i.e., 
+the set of initial arguments of an $AF$ denoted as {\color{purple} $\mathcal{NI}(AF)$}, i.e., 
 $\mathcal{IN}(AF) =  \{a \in Ar \mid a^- = \emptyset\}$)
 then $a$ defended by any set of arguments, 
 including $\emptyset$ of course.
@@ -344,16 +288,16 @@ including $\emptyset$ of course.
 
 
 \begin{df}[Characteristic function]
-    Let $AF=(Ar,\to)$ be an AF. 
+    Let $AF=(Arg,\att)$ be an AF. 
     % 
     The \textit{characteristic function} of $AF$ is mapping 
-    $C_{AF} \colon \wp(Ar) \to \wp(Ar)$ such that 
+    $C_{AF} \colon \wp(Arg) \to \wp(Arg)$ such that 
     \[
         C_{AF} (X) 
             = 
-        \{a \in Ar \mid X \text{~defends~} a\}
+        \{a \in Arg \mid X \text{~defends~} a\}
     \]
-    for each $X \subseteq Ar$. 
+    for each $X \subseteq Arg$.       \zh{刻画函数}
 \end{df}
 
 % In what follows, 
@@ -362,29 +306,31 @@ including $\emptyset$ of course.
 
 
 \begin{prop} 
-    For any AF $AF=(Ar,\to)$, 
+    For any AF $AF=(Arg,\att)$, 
     then:
     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
-        \item $C_{AF}(\emptyset)=\mathcal{IN}(AF)=\{a \in Ar \mid a^- = \emptyset\}$.
+        \item 
+        $C_{AF}(\emptyset)=\mathcal{IN}(AF)=\{a \in Arg \mid a^- = \emptyset\}$.
         
 
-        \item $\mathcal{IN}(AF) \subseteq C_{AF}(X)$.
+        \item 
+        $\mathcal{IN}(AF) \subseteq C_{AF}(X)$.
 
 
         \item $C_{AF}(X) = (X^+)^+$.
         % [AC98] L. Amgoud and C. Cayrol. On the acceptability of arguments in preference-based argumentation. In G. Cooper and S. Moral, editors, Proceedings of the 14th Conference on Uncertainty in Artificial Intelligence (UAI 1998), pages 1–7. Morgan Kaufmann, 1998.
     \end{enumerate}
-    where $X \subseteq Ar$.
+    where $X \subseteq Arg$.
 \end{prop}
 
 
 
 
-\begin{df}[Conflict-freeness]
-    Let $AF=(Ar,\to)$ be an AF and $X \subseteq Ar$.
+\begin{df}[Conflict--freeness]
+    Let $AF=(Arg,\att)$ be an AF and $X \subseteq Arg$.
     % 
-    $X$ is said to be  \textit{conflict-free} iff 
-    $\neg\exists a,b \in X: a \to b$. 
+    $X$ is said to be  \textit{conflict--free} \zh{无冲突} iff 
+    $\neg\exists a,b \in X: a \att b$.  
 \end{df}
 
 
@@ -393,9 +339,10 @@ Clearly,
 the emptyset $\emptyset$ is conflict--free.
 %
 Furthermore,  
-if each argument has at least one attacker in an AF, 
+if each argument has at least one attacker, 
 i.e. $a^- \not=\emptyset$ for every argument $a$, 
 then  $\emptyset$ is a (conflict--free) fixed point of the characteristic function.
+\zh{什么情况下空集是不动点}
 
 
 
@@ -408,13 +355,14 @@ a basic requirement for a set of arguments is the capability to defend all its e
 
 
 \begin{df}[Admissibility]
-    Let $AF=(Ar,\to)$ be an AF. 
-    A set $X \subseteq Ar$ is called an \textit{admissible set} iff 
-    (1) $X$ is conflict-free and 
+    Let $AF=(Arg,\att)$ be an AF. 
+    A set $X \subseteq Arg$ is called an \textit{admissible set} \zh{可容许集} iff 
+    (1) $X$ is conflict--free and 
     (2) $X \subseteq C_{AF}(X)$.
     % 
     % The set of admissible sets of $\mathcal{AF}$ is denoted as $AS_\mathcal{AF}$.
 \end{df}
+
 
 
 Thus, 
@@ -424,7 +372,7 @@ that is, conflict-free and able to defend its elements.
 Admissible sets always exist.
 % 
 A very trivial case is that the empty set $\emptyset$ is admissible for any argumentation framework.
-
+\zh{空集是可容许集}
 
 
 
@@ -439,7 +387,7 @@ A very trivial case is that the empty set $\emptyset$ is admissible for any argu
         \arrow[curve={height=-10pt}, from=1-4, to=1-3]
     \end{tikzcd}\]
 
-    - non-empty conflict-free sets: 
+    - non--empty conflict--free sets: 
     $
         \{a\}, 
         \{b\},
@@ -450,7 +398,7 @@ A very trivial case is that the empty set $\emptyset$ is admissible for any argu
         \{b,d\}.
     $
 
-    - non-empty admissible sets:
+    - non--empty admissible sets:
     $
         \{a\}, 
         \{d\},
@@ -471,11 +419,11 @@ it is worth recalling that admissibility and defense are related by a basic prop
 In terms of extensions, 
 if an admissible set defends an argument, 
 it is possible to add the argument to the set while preserving its admissibility and its capability to defend any other argument. 
-This was proved in the so-called Dung's Fundamental Lemma.
+This was proved in the so--called Dung's Fundamental Lemma.
 
 
 \begin{lemma}[Dung's Fundamental Lemma \cite{Dun1995}]
-    For any AF $AF=(Ar,\to)$, 
+    For any AF $AF=(Arg,\att)$, 
     let $X$ be an admissible set and $a,b$ be arguments defended by $X$. 
     Then 
     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
@@ -621,11 +569,12 @@ The following three justification states refine this relatively rough classifica
 \end{comment}
 
 
+
 % /////////////////////////////////////////////////////////////////////////////
 \subsection{An overview of (extension-based) argumentation semantics}
 
 
-In this subsection we provide an overview of some well-known argumentation semantics, 
+In this subsection we  will provide an overview of some well--known argumentation semantics, 
 starting from the very basic notion of ``na\"{i}ve semantics'' \cite[\S~3.2]{Bar.Cam.Gia2018} and then 
 discussing Dung's original concepts of \textit{complete}, \textit{stable}, \textit{preferred} and \textit{grounded} semantics \cite{Dun1995}.
 % , 
@@ -657,35 +606,37 @@ discussing Dung's original concepts of \textit{complete}, \textit{stable}, \text
 
 \begin{remark}
     In the literature, 
-    \textit{admissibility} and \textit{conflict--freeness} mentioned in \S~\ref{subsec: AFs} are sometimes viewed as semantics, and sometimes as properties.
+    \textit{admissibility} and \textit{conflict--freeness} mentioned in \S~\ref{subsec: abstract-argumentation-frameworks} are sometimes viewed as semantics, and sometimes as properties.
     We choose to treat them as properties in this note.
 \end{remark}
 
 
 
 
-\begin{df}[Extension-based semantics]
+\begin{df}[Extension--based semantics]
 \label{def: extension-semantics}
-    An \textit{extension-base semantics} (\textit{semantics}, for short) $\sigma$ associates with any argumentation framework $AF = (Ar,\to)$ is a subset of $\wp(Ar)$, 
-    denoted as $\sigma(AF)$.    
-    The elements in $\sigma(AF)$ are called \textit{extensions} (under semantics $\sigma$).
+    An \textit{extension--base semantics} (\textit{semantics}, for short) $\sigma$ associates with any argumentation framework $AF = (Arg,\att)$ is a subset of $\wp(Arg)$, 
+    denoted as {\color{purple} $\sigma(AF)$}. 
+    %    
+    The elements in $\sigma(AF)$ are called \textit{extensions} (under semantics $\sigma$) \zh{外延}. 
 
 
     Let $\mathcal{D}^\sigma$ be the class of AFs where a semantic $\sigma$ is defined, 
     that is, 
     \[
-        \mathcal{D}^\sigma 
+        {\color{purple} \mathcal{D}^\sigma}
             = 
         \{AF \mid \sigma(AF)\not=\emptyset\}.
     \]
     % 
     A semantics $\sigma$ is called \textit{universally defined} if $\mathcal{D}^\sigma$ includes all AFs.
     % 
-    If for all $AF \in \mathcal{D}^\sigma$ we have that $|\sigma(AF)| = 1$, 
+    If for any $AF \in \mathcal{D}^\sigma$ we have that $|\sigma(AF)| = 1$, 
     i.e. the semantics $\sigma$ always prescribes exactly one extension, 
-    then $\sigma$ is said to belong to the \textit{unique-status approach}, 
-    it is said to belong to the \textit{multiple-status approach}, 
-    otherwise.
+    then $\sigma$ is said to belong to the \textit{unique--status approach}, 
+    it is said to belong to the \textit{multiple--status approach}, 
+    otherwise. 
+    \zh{基于外延的语义}
 \end{df}
 
 
@@ -694,7 +645,7 @@ discussing Dung's original concepts of \textit{complete}, \textit{stable}, \text
 \subsubsection{Na\"{i}ve Semantics}
 
 
-\textit{Na\"{i}ve semantics} (denoted as $\mathcal{N}\!\mathcal{A}$) corresponds to selecting as many arguments as possible, 
+\textit{Na\"{i}ve semantics} (denoted as {\color{purple} $\mathcal{N}\!\mathcal{A}$}) corresponds to selecting as many arguments as possible, 
 provided that there are no conflicts among them.  
 % 
 It is a sort of greedy strategy, 
@@ -706,18 +657,17 @@ Formally it corresponds to requiring conflict--freeness together with a maximali
 
 
 \begin{df}[Na\"{i}ve extensions]
-    Let $(Ar,\to)$ be an AF. 
+    Let $(Arg,\att)$ be an AF. 
     % 
-    A set $X \subseteq Ar$ is called a \textit{na\"{i}ve extension} iff 
-    $X$ is a maximal conflict-free set.
+    A set $X \subseteq Arg$ is called a \textit{na\"{i}ve extension} iff 
+    $X$ is a maximal conflict--free set.
 \end{df}
 
 
 \begin{example}
     \qquad
-
     \begin{center}
-    \renewcommand{\arraystretch}{3}
+    \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{c||c}
         \hline
         $AF$ & 
@@ -768,11 +718,11 @@ Formally it corresponds to requiring conflict--freeness together with a maximali
 
 
 % % /////////////////////////////////////
-\subsubsection{Complete Semantics}
+\subsubsection[Complete Semantics]{Complete Semantics \zh{完全语义}}
 
 % $X$ 防御的所有论证都在 $X$ 中
 
-\textit{Complete semantics} (denoted as $\mathcal{CO}$) can be regarded as a strengthening of the basic 
+\textit{Complete semantics} (denoted as {\color{purple} $\mathcal{CO}$}) can be regarded as a strengthening of the basic 
 requirements enforced by the idea of admissibility, 
 it lies at the heart of all Dung's semantics (see Fig.~\ref{fig: relations among extension notions}).
 
@@ -784,23 +734,24 @@ and if an argument is not defended by the set, it should not be in the set.
 
 
 \begin{df}[Complete extensions]
-    Let $AF=(Ar,\to)$ be an AF. 
+    Let $AF=(Arg,\att)$ be an AF. 
     %
-    A set $X \subseteq Ar$ is called a \textit{complete extension} iff $X$ is conflict--free and $X = C_{AF}(X)$. 
+    A set $X \subseteq Arg$ is called a \textit{complete extension} iff $X$ is conflict--free and $X = C_{AF}(X)$. 
 \end{df}
 
 
 Technically this means that a complete extension is a \textit{conflict--free fixed point} of the characteristic function.
 % 
 It is clear that every complete extension is an admissible set, 
-but the reverse does not hold in general.
-% 
-% Intuitively, 
-% the notion of complete extension captures the kind of confident relational agent who believe in every thing he can defend.
+but the reverse does not hold in general. 
+\zh{无冲突不动点}
+\\ 
+``Intuitively, 
+the notion of complete extension captures the kind of confident relational agent who believe in every thing he can defend''\cite{Dun1995}.
 
 
 
-\begin{prop} Let $AF = (Ar,\to)$ be any AF.
+\begin{prop} Let $AF = (Arg,\att)$ be any AF.
     \begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
         \item $\mathcal{CO}(AF) \not= \emptyset$, 
         that is, 
@@ -829,8 +780,8 @@ but the reverse does not hold in general.
     \renewcommand{\arraystretch}{3}
     \begin{tabular}{c||c}
     \hline
-        $\mathcal{AF}$ & 
-        complete extensions $\mathcal{E}_\mathcal{CO}(\mathcal{AF})$ \\ 
+        $AF$ & 
+        complete extensions $\mathcal{E}_\mathcal{CO}(AF)$ \\ 
         \hline
     
     
@@ -879,7 +830,7 @@ but the reverse does not hold in general.
 
 
 % % /////////////////////////////////////
-\subsubsection{Grounded Semantics}
+\subsubsection[Grounded Semantics]{Grounded Semantics \zh{基语义}}
 
 % 满足怀疑的评价标准（最小的完全外延）
 
@@ -887,21 +838,21 @@ To accept only the arguments that one cannot avoid accepting,
 to reject only the arguments that one cannot avoid rejecting, 
 and abstaining as much as possible.
 % 
-This gives rise to the most skeptical semantics among those based on complete extensions, 
+This gives rise to the {\color{teal} most skeptical semantics} among those based on complete extensions, 
 namely the 
-\textit{grounded semantics} (denoted as $\mathcal{GR}$).
+\textit{grounded semantics} (denoted as {\color{purple} $\mathcal{GR}$}).
 
 
 
 
 \begin{df}[The grounded extension]
-    Let $AF=(Ar,\to)$ be an AF.
+    Let $AF=(Arg,\att)$ be an AF.
     % 
-    The \todo{基外延}\textit{grounded extension} of $AF$ is a minimal conflict--free fixed point of the characteristic function.
+    The \textit{grounded extension} of $AF$ is a minimal conflict--free fixed point of the characteristic function.
 \end{df}
 
 
-Notice that the uniqueness of the grounded extension. 
+Notice that the {\color{teal} uniqueness} of the grounded extension. 
 Since the characteristic function $C_{AF}$ is monotonic, 
 it follows from the Knaster-Tarski Theorem that $C_{AF}$ has a unique smallest fixed point, 
 it can then be proved that this fixed point is also conflict--free.
@@ -909,7 +860,7 @@ it can then be proved that this fixed point is also conflict--free.
 
 
 \begin{prop}
-    For any AF $AF=(Ar,\to)$, 
+    For any AF $AF=(Arg,\att)$, 
     the following statements are equivalent:
     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] 
         \item $X$ is a minimal conflict--free fixed point of $C_{AF}$.
@@ -933,7 +884,7 @@ It follows that:
 
 
 
-The grounded extension of an argumentation framework $AF$ will be denoted as $GR(AF)$.
+The grounded extension of an argumentation framework $AF$ will be denoted as {\color{purple} $GR(AF)$}.
 % 
 By definition,
 the grounded extension coincides with the intersection of all complete extensions, 
@@ -1011,15 +962,15 @@ although it may be the empty set.
 
 
 % % /////////////////////////////////////
-\subsubsection{Preferred Semantics}
+\subsubsection[Preferred Semantics]{Preferred Semantics \zh{优先语义}}
 
 % 满足轻信的评价标准（极大的完全外延）
 
-The idea of maximizing accepted arguments is expressed by \textit{preferred semantics} ($\mathcal{PR}$).
+The idea of maximizing accepted arguments is expressed by \textit{preferred semantics} ({\color{purple} $\mathcal{PR}$}, in symbol).
 
 
 \begin{df}[Preferred extensions]
-    Let $AF=(Ar,\to)$ be an AF. 
+    Let $AF=(Arg,\att)$ be an AF. 
     %
     A \todo{优先外延} \textit{preferred extension} is a maximal (w.r.t. $\subseteq$) admissible set of $AF$. 
 \end{df}
@@ -1036,7 +987,7 @@ Preferred extensions can for instance equivalently be characterized as maximal c
 
 
 \begin{prop}
-    Let $AF=(Ar,\to)$ be an AF and $X \subseteq Ar$. 
+    Let $AF=(Arg,\att)$ be an AF and $X \subseteq Arg$. 
     The following two statements are equivalent:
     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] 
         \item $X$ is a maximal admissible set of $AF$.
@@ -1105,17 +1056,17 @@ Preferred semantics has often been regarded as the most satisfactory semantics i
 
 
 % % /////////////////////////////////////
-\subsubsection{Stable Semantics}
+\subsubsection[Stable Sematnics]{Stable Semantics \zh{稳定语义}}
 
 
-\textit{Stable semantics} (denoted as $\mathcal{ST}$) relies on a very simple intuition: 
+\textit{Stable semantics} (denoted as {\color{purple}$\mathcal{ST}$}) relies on a very simple intuition: 
 an extension should be able to attack all arguments not included in it.
 
 
 \begin{df}[Stable extensions]
-    Let $AF=(Ar,\to)$ be an AF. 
+    Let $AF=(Arg,\att)$ be an AF. 
     %
-    A \todo{稳定外延} \textit{stable extension} of $AF$ is a conflict--free set $X$ such that $X \cup X^+ = Ar$. 
+    A \textit{stable extension} \zh{稳定外延} of $AF$ is a conflict--free set $X$ such that $X \cup X^+ = Arg$. 
 \end{df}
 
 
@@ -1129,18 +1080,18 @@ but not vice versa.
 
 
 \begin{prop}
-    Let $AF=(Ar,\to)$ be an AF and $X \subseteq Ar$. 
+    Let $AF=(Arg,\att)$ be an AF and $X \subseteq Arg$. 
     The following statements are equivalent:
     \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] 
         \item $X$ is a stable extension. 
         
-        \item $X$ is an admissible set s.t. $X \cup X^+ = Ar$.
+        \item $X$ is an admissible set s.t. $X \cup X^+ = Arg$.
         
-        \item $X$ is a complete extension s.t. $X \cup X^+ = Ar$.
+        \item $X$ is a complete extension s.t. $X \cup X^+ = Arg$.
         
-        \item $X$ is a preferred extension s.t. $X \cup X^+ = Ar$.
+        \item $X$ is a preferred extension s.t. $X \cup X^+ = Arg$.
         
-        \item $X^+ = Ar \setminus X$.
+        \item $X^+ = Arg \setminus X$.
     \end{enumerate}
 \end{prop}
 
@@ -1151,7 +1102,6 @@ and not every argument framework has stable extensions.
 
 
 \begin{example}[Stable extensions] \qquad
-
     \begin{center}
     \renewcommand{\arraystretch}{3}
     \begin{tabular}{c||c}
@@ -1202,8 +1152,7 @@ and not every argument framework has stable extensions.
 
 % % /////////////////////////////////////
 
-
-% \subsubsection{Semi-Stable Semantics}
+\subsubsection{Semi-Stable Semantics (coming in soon)}
 
 
 % \textit{Semi-stable semantics} ($\mathcal{SST}$) 
@@ -1216,13 +1165,13 @@ and not every argument framework has stable extensions.
 
 
 % % /////////////////////////////////////
-% \subsubsection{Ideal and Eager Semantics}
+\subsubsection{Ideal and Eager Semantics (coming in soon)}
 
 % % /////////////////////////////////////
-% \subsubsection{Stage Semantics}
+\subsubsection{Stage Semantics (coming in soon)}
 
 % % /////////////////////////////////////
-% \subsubsection{$CF2$ and stage2 Semantics}
+\subsubsection{$CF2$ and stage2 Semantics (coming in soon)}
 
 
 
@@ -1232,38 +1181,42 @@ and not every argument framework has stable extensions.
 
 
 
-Given an AF $AF=(Ar,\to)$ and a semantics $\sigma$, 
-the \textit{verification problem}, 
-denoted as $Var_\sigma$, 
-is deciding whether a set $X \subseteq Ar$ is a $\sigma$-extension of $AF$. 
+Given an AF $AF=(Arg,\att)$ and a semantics $\sigma$, 
+there are three kinds of computational problems usually be considered:
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+    \item 
+    the \textit{verification problem}  \zh{验证问题}, 
+    denoted as {\color{purple} $Var_\sigma$}: 
+    deciding whether a set $X \subseteq Arg$ is a $\sigma$--extension of $AF$, 
+    that is, whether $X \in \sigma(AF)$?
 
+    \item 
+    the \textit{credulous acceptance problem} \zh{轻信接受问题}, 
+    denoted as {\color{purple} $CA_\sigma$}: 
+    for $a \in Arg$, 
+    deciding whether $a$ is credulously accepted, 
+    that is deciding whether $a$ belongs to a $\sigma$--extension of $AF$. 
+    I.e., whether $a \in \bigcup \sigma(AF)$?
 
+    Every argument that does not attack itself will be credulously accepted under the conflict--free property.
 
+    \item 
+    the \textit{skeptical acceptance problem} \zh{谨慎接受问题}, 
+    denoted as {\color{purple} $SA_\sigma$}: 
+    deciding whether $a$ is skeptically  accepted, 
+    that is deciding whether $a$ belongs to every $\sigma$--extension of $AF$.
+    I.e.,  whether $a \in \bigcap \sigma(AF)$?
+\end{enumerate}
 
-
-
-
-For $a \in Ar$, 
-the \textit{credulous acceptance problem}, 
-denoted as $CA_\sigma$, 
-is deciding whether $a$ is credulously accepted, 
-that is deciding whether $a$ belongs to a $\sigma$--extension of $AF$.  
-% 
-Moreover, 
-the \textit{skeptical acceptance problem}, 
-denoted as $SA_\sigma$, 
-is deciding whether $a$ is skeptically  accepted, 
-that is deciding whether $a$ belongs to every $\sigma$--extension of $AF$. 
 
 Clearly, 
-$CA_\mathcal{GR}$ and $SA_\mathcal{GR}$
-% that is $\sigma = \mathcal{GR}$, 
-are identical problems.
+$CA_\mathcal{GR}$ and $SA_\mathcal{GR}$ are identical problems.
 % 
-The computational complexity of those problems are summarized in  table~\ref{tab: complexity} \cite{Dun.Woo2009,Dvo.Dun2018}.
+For $\sigma \in \{\mathcal{CO,GR,PR,ST}\}$, 
+the computational complexity of those problems are summarized in  table~\ref{tab: complexity} (for more detail, see \cite{Dun.Woo2009,Dvo.Dun2018}).
 
 
-\begin{table}[ht!]
+\begin{table}[th!]
     \centering
     \caption{Complexity of $Ver$, $CA$ and $SA$ problems}
     \label{tab: complexity}
@@ -1308,169 +1261,42 @@ The computational complexity of those problems are summarized in  table~\ref{tab
 
 
 
-% \vspace{3em}
+\vspace*{3em}
 % One of the most common reasoning problems in argumentation concerns the skeptical and credulous acceptance of arguments, 
 % by which we understand that they are accepted in all (resp. some) extensions of a given framework.
 
-% $AF \vsim^c_\sigma a$ credulously accepted
 
-% $AF \vsim^s_\sigma a$ skeptically accepted
+\noindent\dotfill some symbols \noindent\dotfill
 
-% $AF \vsim^\circ_\sigma a$  where $\circ \in \{s,c\}$
 
-% Every argument that does not attack itself will be credulously accepted under the conflict-free semantics.
+$AF \vsim^c_\sigma a$ credulously accepted
+
+$AF \vsim^s_\sigma a$ skeptically accepted
+
+$AF \vsim^\circ_\sigma a$  where $\circ \in \{s,c\}$
+
+
 
 
 % /////////////////////////////////////////////////////////////////////////////
 \newpage
-\newgeometry{left=.5cm,right=.5cm,top=1cm,bottom=2cm}
+\newgeometry{left=1cm,right=1cm,top=2cm,bottom=2cm}
 \subsection{A summary}
 
 
-% The grounded extension is uniquely determined and always exists \cite{Dun1995}  and that not every framework is guaranteed to produce a stable extension.
 
+The grounded extension is uniquely determined and always exists \cite{Dun1995},
+and not every framework is guaranteed to produce a stable extension.
 
-\begin{table}[ht!]
-    \centering
-    \caption{Basic notions of AAT}
-    \label{tab: basic notions of AAT}
-    $AF = (Ar,\to)$ is an AF, $X \subseteq Ar$ and $a,b \in Ar$.
-    \vspace{1em}
-
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{l||lll}
-    % Let $\mathcal{A} = (A,\to)$ be an abstract argumentation framework \\
-    \hline
-    \multicolumn{1}{c}{Notions}  & 
-    \multicolumn{1}{c}{Definition or equivalent descriptions} \\
-    \hline
-
-    $a \to b$   &
-    $a$ attacks/defeats $b$ \hfill  ($a$ is an attacker/counterargument of $b$)   \\
-
-    $X \to a$ \qquad  ($X$ attacks $a$) & 
-    $\exists b \in X: b \to a$  \\
-
-    
-    
-    $a^-$ &  
-    $a^- = \{b \in Ar \mid b \to a\}$  \\
-
-    $a^+$ &  
-    $a^+ = \{b \in Ar \mid a \to b\}$  \\
-
-    $X^-$ &  
-    $X^- = \{b \mid \exists a \in X: b \to a\} = \bigcup_{a\in X} a^- $\\
-
-    $X^+$ & 
-    $X^+ = \{b \mid \exists a \in X: a \to b\} = \bigcup_{a\in X} a^+$ \\
-
-
-    $X$ defends $a$  / $a$ is admissible w.r.t. $X$ & 
-    $\forall b: b \to a \Rightarrow X \to b$ 
-    \hfill
-    [$X$ defends $a$ for any $X$ if $a^- = \emptyset$]  \\
-
-    
-    $\mathcal{IN}(AF)$  &
-    $\mathcal{IN}(AF) = \{a\in Ar \mid a^- = \emptyset\}$  
-    \hfill  the set of initial arguments   \\
-
-    \hdashline
-
-    \multirow{3}*{
-    $C_{AF}$: the characteristic function}  
-    & 
-    % $C_\mathcal{AF} \colon \wp(Ar) \to \wp(Ar)$ s.t. 
-    $C_{AF} (X) = \{a \mid X \text{~defends~} a \}$   \\
-    &  $C_{AF}{X} = (X^+)^+$  \\
-    & [$\emptyset$ is a fixed point if $\mathcal{IN}(AF)=\emptyset$]  \\
-
-    \hdashline
-
-
-    $X$ is conflict--free & 
-    $\not\exists a,b \in X: a \to b$ 
-    \hfill
-    [$\emptyset$ is conflict--free]  \\
-    & 
-    $\not\exists a,b \in X: a \in b^-$  \\ 
-    & 
-    $X \cap X^+ = \emptyset$    \\
-    % $\forall a,b \in X: a \not\to b$  \\
-
-
-    \hdashline
-
-
-    $X$ is admissible & 
-    $X$ is conflict--free and $X \subseteq C_\mathcal{AF} (X)$  
-    \hfill
-    [$\emptyset$ is admissible] \\
-
-    
-    \hline
-    \multicolumn{2}{c}{Semantics} \\
-    \hline
-
-    $\mathcal{N}\!\mathcal{A}(AF)$:
-    $X$ is a \textit{na\"{i}ve extension} & 
-    $X$ is a maximal conflict--free set  \\
-    \hdashline 
-
-
-    $\mathcal{CO}(AF)$:
-    $X$ is a \textit{complete extension} &  
-    $X$ is a conflict--free  and $C_{AF}(X)=X$ 
-    \quad
-    (conflict--free fixed point) \\
-    \hdashline
-
-
-    \multirow{3}{*}{$\mathcal{GR}(AF)$:
-    $X$ is the \textit{grounded extension} 
-    } & 
-    $X$ is the least fixed point of $C_{AF}$  \\
-    & $X$ is the minimal complete extension  \\
-    & $X = GR(AF) = \bigcap \mathcal{CO}(AF)$  \\
-    \hdashline
-
-    
-    \multirow{2}{*}{$\mathcal{PR}(AF)$:
-    $X$ is a \textit{preferred extension}  
-    } & 
-    $X$ is a maximal admissible set  \\
-    & $X$ is a maximal complete extension  \\ 
-    \hdashline
-
-    
-    \multirow{7}{*}{$\mathcal{ST}(AF)$: 
-    $X$ is a \textit{stable extension}
-    } & 
-    $X$ is conflict--free and $X \cup X^+ = Ar$  \\
-    & $X^+ = Ar \setminus X$    \\
-    & $X$ is a preferred extension and $X \cup X^+ = Ar$  \\
-    & $X$ is a complete extension and $X \cup X^+ = Ar$  \\
-    & $X$ is admissible and $X \cup X^+ = Ar$  \\ 
-    & $X = \{a \in Ar \mid X \not\to a\}$  \\
-    & $X$ is conflict--free and attacks each argument that is not in $X$  \\
-    \hline
-    \end{tabular}
-
-    % \vspace{1em}
-    % NB: all the key argumentation-theoretic notions can be defined in terms of the characteristic function.
-\end{table}
-
-
-% It is well--known that
-% the set of complete extensions forms a \textit{complete semilattice} w.r.t. $\subseteq$, 
-% where $GR(AF)$ is the meet element, 
-% whereas the greatest elements are the preferred extensions.
-
+It is well--known that
+the set of complete extensions forms a {\color{teal} \textit{complete semilattice}} w.r.t. $\subseteq$, 
+where $GR(AF)$ is the meet element, 
+whereas the greatest elements are the preferred extensions.
 
 
 % % figure
 \begin{figure}[ht!]
+    \vspace{1.5em}
     \centering
     \begin{tikzcd}
 	& {\text{stable~extension}} \\
@@ -1488,18 +1314,20 @@ The computational complexity of those problems are summarized in  table~\ref{tab
     \end{tikzcd}
 \caption{Relations among extension--based semantics}
 \label{fig: relations among extension notions}
-% \vspace{1em}
-% \parbox{10cm}{\footnotesize
-% Note: The intuitive meaning of  arrow ``$x \longrightarrow y$'' is that  ``every $x$ is a $y$'', 
+\vspace{1em}
+\parbox{10cm}{\footnotesize
+Note: The intuitive meaning of  arrow ``$x \longrightarrow y$'' is that  ``every $x$ is a $y$''.
 % while the dashed arrow ``$x \dashrightarrow y$'' means that ``every $x$ is contained in any $y$''. 
-% For example, 
-% every stable extension is a preferred extension, 
+For example, 
+every stable extension is a preferred extension.
+% , 
 % as well as, 
 % the grounded extension is included in any preferred extensions.
-% }
+}
 \end{figure}
 
 
+\vspace{1.5em}
 \begin{table}[ht!]
     \centering
     \caption{A summary of the examples mentioned}
@@ -1602,14 +1430,137 @@ The computational complexity of those problems are summarized in  table~\ref{tab
 \end{table}
 
 
+\begin{table}[ht!]
+    \centering
+    \caption{Some basic concepts}
+    \label{tab: basic notions of AAT}
+    $AF = (Arg,\att)$ is an AF and $X\cup\{a,b\} \subseteq Arg$.
+    \vspace{1em}
+
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{l||lll}
+    % Let $\mathcal{A} = (A,\to)$ be an abstract argumentation framework \\
+    \hline
+    \multicolumn{1}{c}{Notions}  & 
+    \multicolumn{1}{c}{Definition or equivalent descriptions} \\
+    \hline
+
+    \multirow{2}{*}{$a \att b$}   &
+    $a$ attacks/defeats $b$  \\ 
+    &  $a$ is an attacker/counterargument of $b$   \\
+
+    \hdashline
+
+    $X \att a$ \qquad   & 
+    $X$ attacks $a$: $\exists b \in X: b \att a$  \\
+
+    
+    
+    $a^-$ &  
+    $a^- = \{b \in Arg \mid b \att a\}$  \\
+
+    $a^+$ &  
+    $a^+ = \{b \in Arg \mid a \att b\}$  \\
+
+    $X^-$ &  
+    $X^- = \{b \in Arg \mid \exists a \in X: b \att a\} = \bigcup_{a\in X} a^- $\\
+
+    $X^+$ & 
+    $X^+ = \{b \in Arg \mid \exists a \in X: a \att b\} = \bigcup_{a\in X} a^+$ \\
+
+    $\mathcal{IN}(AF)$: the set of initial arguments &
+    $\mathcal{IN}(AF) = \{a\in Arg \mid a^- = \emptyset\}$    \\
+
+    $X$ defends $a$  / $a$ is admissible w.r.t. $X$ & 
+    $\forall b: b \att a \Rightarrow X \att b$ 
+    \hfill
+    [$X$ defends all initial arguments] \\
+
+    
+
+
+    \hdashline
+
+    \multirow{3}*{
+    $C_{AF}$: the characteristic function}  
+    & 
+    % $C_\mathcal{AF} \colon \wp(Ar) \att \wp(Ar)$ s.t. 
+    $C_{AF} (X) = \{a \mid X \text{~defends~} a \}$   \\
+    &  $C_{AF}{X} = (X^+)^+$  \\
+    & [$\emptyset$ is a fixed point if $\mathcal{IN}(AF)=\emptyset$]  \\
+
+    \hdashline
+
+
+    \multirow{3}{*}{$X$ is conflict--free} & 
+    $\not\exists a,b \in X: a \att b$ 
+    \hfill
+    [$\emptyset$ is conflict--free]  \\
+    & 
+    $\not\exists a,b \in X: a \in b^-$  \\ 
+    & 
+    $X \cap X^+ = \emptyset$    \\
+    % $\forall a,b \in X: a \not\att b$  \\
+
+
+    \hdashline
+
+
+    $X$ is admissible & 
+    $X$ is conflict--free and $X \subseteq C_\mathcal{AF} (X)$  
+    \hfill
+    [$\emptyset$ is admissible] \\
+
+    
+    \hline
+    \multicolumn{2}{c}{\textsc{Semantics}} \\
+    \hline
+
+    $\mathcal{N}\!\mathcal{A}(AF) \ni X$ is a \textit{na\"{i}ve extension} & 
+    $X$ is a maximal conflict--free set  \\
+    \hdashline 
+
+    
+    \multirow{2}{*}{$\mathcal{CO}(AF) \ni X$ is a \textit{complete extension}} &  
+    $X$ is a conflict--free  and $C_{AF}(X)=X$  \\
+    & conflict--free fixed point \\
+    \hdashline
+
+
+    \multirow{3}{*}{$\mathcal{GR}(AF) \ni X$ is the \textit{grounded extension} 
+    } & 
+    $X$ is the least fixed point of $C_{AF}$  \\
+    & $X$ is the minimal complete extension  \\
+    & $X = GR(AF) = \bigcap \mathcal{CO}(AF)$  \\
+
+    
+    \hdashline
+
+    
+    \multirow{2}{*}{$\mathcal{PR}(AF) \ni X$ is a \textit{preferred extension}  
+    } & 
+    $X$ is a maximal admissible set  \\
+    & $X$ is a maximal complete extension  \\ 
+    \hdashline
+
+    
+    \multirow{7}{*}{$\mathcal{ST}(AF) \ni X$ is a \textit{stable extension}
+    } & 
+    $X$ is conflict--free and $X \cup X^+ = Ar$  \\
+    & $X^+ = Ar \setminus X$    \\
+    & $X$ is a preferred extension and $X \cup X^+ = Ar$  \\
+    & $X$ is a complete extension and $X \cup X^+ = Ar$  \\
+    & $X$ is admissible and $X \cup X^+ = Ar$  \\ 
+    & $X = \{a \in Ar \mid X \not\att a\}$  \\
+    & $X$ is conflict--free and attacks each argument that is not in $X$  \\
+    \hline
+    \end{tabular}
+
+    % \vspace{1em}
+    % NB: all the key argumentation-theoretic notions can be defined in terms of the characteristic function.
+\end{table}
+
+
+
 \restoregeometry
-\newpage
 % /////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-

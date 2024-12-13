@@ -1,11 +1,23 @@
-\contentsline {section}{\numberline {1}Abstract Argumentation Theory}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Argumentation frameworks}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}An overview of (extension-based) argumentation semantics}{4}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Na\"{i}ve Semantics}{4}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Complete Semantics}{5}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Grounded Semantics}{6}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Preferred Semantics}{7}{subsubsection.1.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.5}Stable Semantics}{8}{subsubsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.3}Computational problems and Complexity}{9}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}A summary}{10}{subsection.1.4}%
-\contentsline {section}{References}{12}{section*.7}%
+\contentsline {section}{\numberline {1}Abstract Argumentation}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Abstract Argumentation frameworks}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}An overview of (extension-based) argumentation semantics}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Na\"{i}ve Semantics}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Complete Semantics}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Grounded Semantics}{7}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Preferred Semantics}{8}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Stable Sematnics}{9}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Semi-Stable Semantics (coming in soon)}{10}{subsubsection.1.2.6}%
+\contentsline {subsubsection}{\numberline {1.2.7}Ideal and Eager Semantics (coming in soon)}{10}{subsubsection.1.2.7}%
+\contentsline {subsubsection}{\numberline {1.2.8}Stage Semantics (coming in soon)}{10}{subsubsection.1.2.8}%
+\contentsline {subsubsection}{\numberline {1.2.9}$CF2$ and stage2 Semantics (coming in soon)}{10}{subsubsection.1.2.9}%
+\contentsline {subsection}{\numberline {1.3}Computational problems and Complexity}{10}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}A summary}{12}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Some extensions}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Preference--based AF}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Value--based AF}{14}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Probabilistic AF}{14}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Dynamic}{18}{section.3}%
+\contentsline {section}{\numberline {4}Overview}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Belief Revision and Argumentation}{19}{subsection.4.1}%
+\contentsline {section}{\numberline {A}Probability Measures and Distributions}{20}{appendix.A}%
+\contentsline {section}{References}{22}{section*.8}%

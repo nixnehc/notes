@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.11)  3 NOV 2024 01:07
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.11)  13 DEC 2024 15:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -748,41 +748,8 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2024/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
-
-Package fontspec Warning: Font "Songti SC" does not contain requested Script
-(fontspec)                "CJK".
-
-
-Package fontspec Info: Could not resolve font "Kai/B" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: Could not resolve font "Songti SC Black/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Font family 'SongtiSC(0)' created for font 'Songti SC'
-(fontspec)             with options [Script={CJK},BoldFont={Songti SC
-(fontspec)             Black},ItalicFont={Kai}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Songti
-(fontspec)             SC/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Songti SC
-(fontspec)             Black/OT:language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"Kai/OT:language=dflt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Songti
-(fontspec)             SC/BI/OT:language=dflt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
-
 \c@thm=\count364
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -894,16 +861,6 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count372
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count373
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2023/07/08 v1.2f Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup8
-\symboldletters=\mathgroup9
-\symboldsymbols=\mathgroup10
-Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
-Package bm Info: No bold for \U/msa/m/n, using \pmb.
-Package bm Info: No bold for \U/msb/m/n, using \pmb.
-\symboldwasy=\mathgroup11
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2024/01/05 v1.1.7 Todonotes source and documentation.
 Package: todonotes 2024/01/05
@@ -944,6 +901,53 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@cntb=\count377
 \multirow@dima=\skip75
 \bigstrutjot=\dimen352
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/datetime/datetime.sty
+Package: datetime 2015/03/20 v2.60 Date Time Package
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
+Package: fmtcount 2020/01/30 v3.07
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
+Package: fcprefix 2012/09/28
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
+Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
+Package: fcnumparser 2017/06/15
+\fc@digit@counter=\count378
+))
+\c@padzeroesN=\count379
+\fc@tmpcatcode=\count380
+\@DT@modctr=\count381
+\@ordinalctr=\count382
+\@orgargctr=\count383
+\@strctr=\count384
+\@tmpstrctr=\count385
+\@DT@loopN=\count386
+\@DT@X=\count387
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/datetime/datetime-defaults.sty
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count388
+\@month=\count389
+\@year=\count390
+\c@HOUR=\count391
+\c@HOURXII=\count392
+\c@MINUTE=\count393
+\c@TOHOUR=\count394
+\c@TOMINUTE=\count395
+\c@SECOND=\count396
+\currenthour=\count397
+\currentminute=\count398
+\currentsecond=\count399
+Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
+\@dtctr=\count400
+\dayofyear=\count401
+\dayofweek=\count402
+LaTeX Info: Redefining \today on input line 736.
+\dt@a=\toks51
+\dt@b=\toks52
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
@@ -952,10 +956,36 @@ Package chngcntr Info: \counterwithout already defined.
 Package: apptools 2012/11/28 v1.0 Tools for customizing appendices
 )
 
+Package xeCJK Warning: Fandol is being set as the default font for CJK text.
+(xeCJK)                Please make sure it has been properly installed.
+
+
+Package fontspec Warning: Font "FandolSong-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+
+Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
+(fontspec)             'FandolSong-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf},BoldFont={FandolSong-Bold},ItalicFont={FandolKai-Regular}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolSong-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FandolSong-Bold.otf]/OT:language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+
 LaTeX Warning: Unused global option(s):
     [a4].
 
-(./main.aux)
+(./main.aux (./section/sec-dynamic.aux) (./overview/overview.aux) (./appendix/appendix.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
@@ -987,7 +1017,7 @@ Package hyperref Info: Link coloring OFF on input line 97.
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
-\symlegacymaths=\mathgroup12
+\symlegacymaths=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
 (Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 97.
 LaTeX Font Info:    Redeclaring math accent \acute on input line 97.
@@ -1049,14 +1079,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(99.58464pt, 415.12572pt, 99.58464pt)
-* v-part:(T,H,B)=(28.45274pt, 709.61174pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=415.12572pt
-* \textheight=709.61174pt
+* \textheight=681.15898pt
 * \oddsidemargin=27.31465pt
 * \evensidemargin=27.31465pt
-* \topmargin=-80.81725pt
+* \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -1079,85 +1109,105 @@ Package caption Info: End \AtBeginDocument code.
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 97.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 101.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
+Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
+File: fc-english.def 2016/01/12
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 101.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 101.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 100.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 101.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 100.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 101.
+Package fontspec Warning: Font "FandolHei-Regular" does not contain requested
+(fontspec)                Script "CJK".
 
 
-Package fontspec Warning: Font "Songti SC" does not contain requested Script
-(fontspec)                "CJK".
-
-
-Package fontspec Info: Could not resolve font "Songti SC/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Font family 'SongtiSC(1)' created for font 'Songti SC'
-(fontspec)             with options [Script={CJK}].
+Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
+(fontspec)             'FandolHei-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf},BoldFont={FandolHei-Bold}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Songti
-(fontspec)             SC/OT:language=dflt;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolHei-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Songti
-(fontspec)             SC/B/OT:language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Songti
-(fontspec)             SC/BI/OT:language=dflt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-(./sec-0/sec-0.tex (./main.toc
+(./section/sec-0.tex (./main.toc [1
 
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 2.
-
-
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 2.
-
-)
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-) (./sec-1/sec-1.tex [1
+) (./section/sec-1.tex
 
-]
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
 
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 329.
 
-[2] [3] [4] [5] [6] [7] [8] [9]
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+
+Overfull \hbox (1.01831pt too wide) in paragraph at lines 150--151
+[][]\TU/lmr/bx/n/12 Definition 1.1 (Argumentation frameworks, AFs) []\TU/lmr/m/n/12 An \TU/lmr/m/it/12 argumentation frame-
+ []
+
+[2] [3] [4]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 721.
+
+
+LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/b/n' undefined
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 721.
+
+[5] [6] [7] [8] [9]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1174.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1174.
+
+[10] [11]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(14.22636pt, 585.84227pt, 14.22636pt)
-* v-part:(T,H,B)=(28.45274pt, 709.61174pt, 56.9055pt)
+* h-part:(L,W,R)=(28.45274pt, 557.38951pt, 28.45274pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=585.84227pt
-* \textheight=709.61174pt
-* \oddsidemargin=-58.04362pt
-* \evensidemargin=-58.04362pt
-* \topmargin=-80.81725pt
+* \textwidth=557.38951pt
+* \textheight=681.15898pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -1175,29 +1225,55 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [10
+ [12
 
-] [11]) (./main.bbl
+] [13]) (./section/sec-2.tex [14
 
-Package fontspec Warning: Font "Songti SC" does not contain requested Script
-(fontspec)                "CJK".
+] [15] [16]) [17]
+\openout2 = `section/sec-dynamic.aux'.
 
-) [12
+ (./section/sec-dynamic.tex) [18
+
+]
+\openout2 = `overview/overview.aux'.
+
+ (./overview/overview.tex) [19
 
 
-] (./main.aux)
+
+]
+\openout2 = `appendix/appendix.aux'.
+
+ (./appendix/appendix.tex
+Overfull \hbox (29.66562pt too wide) in paragraph at lines 40--41
+[][] 
+ []
+
+) [20
+
+
+
+] (./main.bbl [21
+
+
+
+]) [22] (./main.aux (./section/sec-dynamic.aux) (./overview/overview.aux) (./appendix/appendix.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
  ) 
 Here is how much of TeX's memory you used:
- 37329 strings out of 474773
- 829110 string characters out of 5757724
- 1953839 words of memory out of 5000000
- 58815 multiletter control sequences out of 15000+600000
- 577898 words of font info for 144 fonts, out of 8000000 for 9000
+ 38116 strings out of 474773
+ 847384 string characters out of 5757724
+ 1961839 words of memory out of 5000000
+ 59576 multiletter control sequences out of 15000+600000
+ 570808 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,23n,107p,537b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,23n,107p,982b,1247s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (12 pages).
+Output written on main.pdf (22 pages).
