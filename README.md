@@ -4,4 +4,4 @@ my notes.
 
 ---
 
-- [/Argumentation-Theory/main.pdf](AAT.pdf)
+- [AAT.pdf](/Argumentation-Theory/main.pdf)
