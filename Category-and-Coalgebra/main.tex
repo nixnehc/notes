@@ -28,8 +28,15 @@
 
 
 
+\usepackage{tcolorbox}
 
 
+
+
+\newcommand{\monic}{\rightarrowtail}
+\newcommand{\epic}{\twoheadrightarrow}
+\newcommand{\monoepiarrow}{\rightarrowtail\hspace{-1em}\twoheadrightarrow}
+\newcommand{\isoarrow}{\xrightarrow{\sim}}
 
 %%=============================================================================
 \title{Notes on Category \& Coalgebra}
@@ -50,16 +57,14 @@
 citation testing: \cite{Smi2024,Lan2018,SEP-category}
 
 
-\input{section/category}
-\include{section/coalgbra}
+\input{category/category}
+\include{category/functor}
+\include{coalgebra/coalgbra}
 
 
 
 % /////////////////////////////////////////////////////////////////////////////
 \clearpage
-% \bibliographystyle{plain}
-
-% \bibliography{/Users/chenxin/Desktop/chenxin.bib}
 \printbibliography
 \addcontentsline{toc}{section}{References}
 \end{document}

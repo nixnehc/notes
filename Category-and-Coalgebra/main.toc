@@ -1,8 +1,25 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Basic Category Theory}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Categories}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {1}Basic Category Theory}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Categories}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Commutative diagrams}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}So many arrows}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Functors}{4}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Coalgebra}{6}{section.2}%
-\contentsline {section}{References}{9}{section*.2}%
+\contentsline {subsection}{\numberline {1.3}Constructing categories}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Duality or Opposite}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Subcategories}{4}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Product categories}{5}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Slice categories}{5}{subsubsection.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.5}Arrow categories}{5}{subsubsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.4}So many arrows}{6}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Monomorphisms \& Epimorphisms}{6}{subsubsection.1.4.1}%
+\contentsline {paragraph}{Monomorphisms}{6}{section*.2}%
+\contentsline {paragraph}{Epimorphisms}{6}{section*.3}%
+\contentsline {paragraph}{Symbols}{7}{section*.4}%
+\contentsline {subsubsection}{\numberline {1.4.2}Inverses arrows ???}{8}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Isomorphisms}{8}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Isomorphic objects}{9}{subsubsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.5}Initial and final objects}{10}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Products \& Coproducts}{11}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Warm up}{11}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}}{11}{subsubsection.1.6.2}%
+\contentsline {section}{\numberline {2}Functors}{13}{section.2}%
+\contentsline {section}{\numberline {3}Coalgebra}{15}{section.3}%
+\contentsline {section}{References}{18}{section*.5}%
