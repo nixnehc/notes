@@ -1,0 +1,70 @@
+%%-------------------------------------
+\documentclass[12pt]{article} % Document class article only supports 10pt, 11pt, and 12pt.
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{cx}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+\geometry{left=3cm,right=3cm,top=2cm,bottom=2cm} %% 设置页边距：
+
+\usepackage{indentfirst}
+
+%% 行距、段距设置
+%\linespread{1.2}     % 设置基本行距。
+% article 文档类的默认是1，即1.2倍字号大小；
+% ctexart 文档类的默认是1.3，即1.56倍字号大小。
+\setlength\parskip{5pt}   % 段间距
+
+\usepackage[
+	backend=bibtex,
+	style=numeric-comp,
+	sorting=nyt,
+	date=year,
+	backref=true,
+	backrefstyle=three]
+	{biblatex}
+\addbibresource{/Users/chenxin/Desktop/chenxin-biblatex.bib}
+
+
+
+
+\newcommand{\monic}{\rightarrowtail}
+\newcommand{\epic}{\twoheadrightarrow}
+\newcommand{\monoepiarrow}{\rightarrowtail\hspace{-1em}\twoheadrightarrow}
+\newcommand{\isoarrow}{\xrightarrow{\sim}}
+
+%%=============================================================================
+\title{Notes on Computability \& Complexity}
+\author{\textsc{Xin Chen} \qquad \href{mailto:chenxin_hello@outlook.com}{\textsf{chenxin\_hello@outlook.com}}  
+	\qquad 
+	$Q_{uality} = \int (\text{\Large $K$},P,t)$}
+\date{latest update: \today}
+
+%%-------------------------------------
+\begin{document}
+
+
+\maketitle
+
+\begin{quotation}
+	\itshape May the force of \textsf{P} and \textsf{NP} be with you. 	
+\end{quotation}
+
+
+\tableofcontents
+
+
+\medskip
+
+citation testing: \cite{Aro.Bar2009}
+
+
+
+
+
+
+% /////////////////////////////////////////////////////////////////////////////
+\clearpage
+\printbibliography
+\addcontentsline{toc}{section}{References}
+\end{document}
