@@ -4,4 +4,4 @@ my notes.
 
 ---
 
-- [AAT.pdf](/Argumentation-Theory/main.pdf)
+- [AAT.pdf](https://nixnehc.github.io/notes/Argumentation-Theory/main.pdf)
