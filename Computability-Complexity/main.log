@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.11)  18 DEC 2024 21:03
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.11)  18 DEC 2024 22:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1346,33 +1346,40 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [1
+ (./basic/basic.tex [1
 
-]
+]) [2]
 
 Package fontspec Warning: Font "Songti SC" does not contain requested Script
 (fontspec)                "CJK".
 
-[2
+[3
 
 ] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C5BC0CC2C09D0D571D49D2E7CF6EB451;94.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 48D0D8740AC014EBCD9390CACA92B51F;342
+(rerunfilecheck)             After:  8C82F451A3DB1512DEF43413C441934E;432.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42570 strings out of 474773
- 940110 string characters out of 5757724
- 1925839 words of memory out of 5000000
- 64053 multiletter control sequences out of 15000+600000
- 570995 words of font info for 120 fonts, out of 8000000 for 9000
+ 42584 strings out of 474773
+ 940393 string characters out of 5757724
+ 1933839 words of memory out of 5000000
+ 64062 multiletter control sequences out of 15000+600000
+ 571003 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,14n,107p,1906b,4832s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,14n,107p,1906b,4780s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (2 pages).
+Output written on main.pdf (3 pages).

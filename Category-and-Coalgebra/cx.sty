@@ -97,7 +97,7 @@
 
 %%% 以下命令设置定理类环境的结束符号，本列中为 $\dashv$
 \makeatletter
-\def\@endtheorem{\hfill $ \dashv $\endtrivlist\@endpefalse }
+\def\@endtheorem{\hfill $\dashv$\endtrivlist\@endpefalse}
 \makeatother
 
 
@@ -116,28 +116,18 @@
 % 创建新的定理环境
 \theoremstyle{cx}
 					
-%\newtheorem{thm}{\bf{定理}}[chapter]
-%\newtheorem{def.}[thm]{\bf{定义}}
-%\newtheorem{df}[thm]{\bf{定义}}
-%\newtheorem{lemma}[thm]{\bf{引理}}
-%\newtheorem{corollary}[thm]{\bf{推论}}
-%\newtheorem{prop}[thm]{\bf{命题}}
-%\newtheorem{example}[thm]{\bf{例}}
-%\newtheorem{note}[thm]{\textit{注记}}
-%\newtheorem{remark}[thm]{\textit{注意}}
-%\newtheorem{fact}[thm]{\textit{事实}}
-%\newtheorem{question}[thm]{\textit{思考}}
 
-\newtheorem{thm}{\bf{Theorem}}[section]
-\newtheorem{df}[thm]{\textsc{Definition}}
-\newtheorem{lemma}[thm]{\bf{Lemma}}
-\newtheorem{corollary}[thm]{\bf{Corollary}}
-\newtheorem{prop}[thm]{\bf{Proposition}}
-\newtheorem{example}[thm]{\bf{Example}}
-\newtheorem{note}[thm]{\textit{Note}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{df}[thm]{Definition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{note}[thm]{Note}
 \newtheorem{remark}[thm]{\textit{Remark}}
-\newtheorem{fact}[thm]{\textit{Fact}}
-\newtheorem{question}[thm]{\textit{Question}}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{question}[thm]{Question}
 
 %%  证毕符号(QED)改成黑色的正方形
 \renewcommand{\qedsymbol}{$\blacksquare$}    
@@ -153,7 +143,7 @@
 %% 正文和数学环境中的 iff 符号：短的粗双箭头
 \newcommand{\iffs }{\text{ $\;\Leftrightarrow\;$ \;}}
 
-\newcommand{\zh}[1]{{\color{gray}(\small\ttfamily #1)}} %中文注译
+\newcommand{\zh}[1]{{{\color{gray}(\small\ttfamily #1)}}} %中文注译
 
 
 %% bisimulation 符号
