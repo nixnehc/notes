@@ -1,0 +1,44 @@
+\section{The Class \textsf{P}} 
+
+A \textit{complexity class}is a set of functions that can be computed within given resource bounds.
+
+
+
+
+
+\begin{df}[The class \textsf{DTIME}]
+    The class \textsf{DTIME}($f(n)$) is the set of all functions that can be computed by a deterministic Turing machine in $O(f(n))$ steps.
+\end{df}
+
+The \textsf{D} in the notation \textsf{DTIME} refers to ``deterministic''.
+
+
+
+\begin{df}[The class \textsf{P}]
+    The class \textsf{P} is the union of all complexity classes \textbf{DTIME}($n^c$) for all  $c$.
+    % 
+    In other words,
+    \[
+        \mathsf{P} = \bigcup_{c \geq 1} \mathsf{DTIME}(n^c).
+    \]
+\end{df}
+
+
+P: polynomial.
+
+
+
+\begin{example}[Graph connectivity]
+    Graph connectivity problem: 
+    
+    input: a graph $G$ and two vertices $s,t$, 
+    
+    inquiry: whether there is a path from $s$ to $t$.
+
+    Using \textit{depth--first search} (DFS), 
+    we can solve this problem in $O(|V|+|E|)$ steps.
+\end{example}
+
+
+
+

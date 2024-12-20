@@ -1,5 +1,19 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Basic concepts}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Representations}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Big--Oh}{2}{subsection.1.2}%
-\contentsline {section}{References}{3}{section*.2}%
+\contentsline {section}{\numberline {1}Basic concepts}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}logarithms}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Strings}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Representations}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Big--Oh}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Computational models}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Turing machines}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Running Time}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Machines as Strings and the Universal Turing Machine}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Variants of Turing machines}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Turing machines with alphabet $\{0,1,\sqcup ,\triangleright \}$}{8}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Single tape Turing machines}{8}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Bidirectional single tape Turing machines}{8}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Other computational models*}{8}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}URM: the unlimited register machine}{8}{subsubsection.2.5.1}%
+\contentsline {section}{\numberline {3}Uncomputability}{9}{section.3}%
+\contentsline {section}{\numberline {4}The Class \textsf {P}}{10}{section.4}%
+\contentsline {section}{References}{11}{section*.2}%
