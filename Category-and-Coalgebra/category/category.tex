@@ -1,0 +1,972 @@
+
+\section{Basic Category Theory}
+
+
+%%-------------------------------------
+\subsection{Categories}
+
+
+\begin{df}[Categories]
+	A \textbf{category} $\mathsf{C}$ consists of a class {\color{purple} $\mathsf{ob(C)}$} of \textbf{objects}, 
+	and for each pair of objects $A,B$, 
+	a family {\color{purple} $\mathsf{C}(A,B)$} of \textbf{arrows}.
+	% 
+	If $f$ is a arrow in $\mathsf{C}(A,B)$, 
+	we write {\color{red} $f \colon A \to B$} or {\color{red} $A \xrightarrow{f} B$}, 
+	and call $A$ the \textbf{domain} (source) and $B$ the \textbf{codomain} (target) of the arrow.
+	% 
+	The collection of arrows is endowed with some algebraic structure:
+    \begin{enumerate}[label=(\arabic*)]
+        \item \textit{Identity Arrows}: for every object $A$ of $\mathsf{C}$ there is an arrow ${\color{purple} Id_A} \colon A \to A$ (or ${\color{purple} 1_A} \colon A \to A$).
+        
+        \item \textit{Composition}: every pair of arrows $f \colon A \to B$, 
+        $g \colon B \to C$ can be uniquely composed to an arrow $g \circ f \colon A \to C$.
+
+        \item \textit{Associativity}: The operations are supposed to satisfy the \textit{associative law} for composition, 
+        while the appropriate identity arrows are left and right neutral elements.
+    \end{enumerate}
+
+	An arrow $f \colon A \to B$ is an \textbf{iso} if it has an \textbf{inverse}, 
+	that is, an arrow $g \colon B \to A$ such that 
+	$f \circ g =Id_B$ and $g \circ f = Id_A$.
+\end{df}
+
+
+
+\begin{example}[Some categories]
+	\begin{enumerate}
+		\item For every algebraic similarity $\Sigma$, 
+		the class $\mathsf{Alg}(\Sigma)$ of $\Sigma$-algebras with homomorphisms as arrows.
+	\end{enumerate}
+\end{example}
+
+
+
+
+
+\begin{example}[The category of sets, $\mathsf{Set}$] 
+	\zh{集合范畴}
+
+    {\color{purple} $\mathsf{Set}$} is the category with (i) objects: all sets, and (ii) arrows: for any sets $X,Y$, every (total) function $f \colon X \to Y$ is an arrow.
+
+    Remarks on the category $\mathsf{Set}$:
+    \begin{enumerate}[itemsep=1pt,parsep=5pt,leftmargin=4em,topsep=1pt,label=(\arabic*)] 
+        \item The identity function on any set is the identity arrow.
+
+        \item The set--function $f \colon A \to B$ and $g \colon B \to C$ always compose.
+        
+        \item The arrows in $\mathsf{Set}$, like any category arrows, must come with determinate targets and codomains. 
+        Hence, we can't simply identify an arrow in $\mathsf{Set}$ with a function's {\color{teal} graph} (i.e. the set $\hat{f}=\{\langle x,y \rangle \mid f(x)=y\}$). 
+
+        We can define a set--function $f \colon A \to B$ as a triple $(A,\hat{f},B)$.
+
+
+        \item {\color{teal} Empty set}: 
+            \begin{itemize}
+                \item There is an identity arrow for $\emptyset$ in $\mathsf{Set}$. 
+                % 
+                Vacuously, for any set $Y$ there is exactly one function $f \colon \emptyset \to Y$, that is, the one whose graph is the empty set. Hence in  particular there is a function $1_\emptyset \colon \emptyset \to \emptyset$.
+
+
+                \item In $\mathsf{Set}$, 
+                the empty set is the one and only set s.t. there is exactly one arrow \textit{from} it to any other set.
+
+                (This tells us how we can characterize a significant object in a category by what arrows it has to and from other objects. 
+                % 
+                For example, we can define {\color{teal} \textit{singletons}} in $\mathsf{Set}$ by relying on the observation that there is exactly one arrow from any set \textit{to} a singleton.)
+            \end{itemize}
+        
+
+        
+    \end{enumerate}
+\end{example}
+
+
+\begin{example}[Logical example]
+	The \textbf{formulas} and \textbf{proofs} in logic form a category.
+	% 
+	Formulas are objects, 
+	and for any formulas $\varphi,\psi$, 
+	the proofs for implication $\varphi \to \psi$, 
+	we write $\vdash \varphi \to \psi$ , as arrows.
+
+	For formula $\varphi$, 
+	$id_\varphi$ is $\vdash \varphi \to \varphi$. 
+	The composition of proof is just HS (hypothetical syllogism) rule:
+	$ \vdash \varphi \to \psi 
+		\quad +\quad 
+		\vdash  \psi \to \chi 
+		\quad
+		\Rightarrow \quad \vdash \varphi \to \chi.
+	$ 
+\end{example}
+
+
+The categories whose objects are sets, 
+perhaps equipped with some structure (e.g. groups, monoids, etc.), 
+and whose arrows are structure--respecting set--functions, 
+are often called \textit{concrete categories}.  \zh{具体范畴}
+\label{def: concrete-categories}
+
+
+\begin{example}
+    Some examples of concrete categories:
+    
+    \begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
+        \item 
+        $\mathsf{FinSet}$: the category whose objects are finite sets and whose arrows are the set--functions between such objects.
+        
+
+        \item $\mathsf{Rel}$: the category of relations.
+        
+        objects: all sets 
+
+        arrows: any relation $R$ between $A$ and $B$. 
+        We can let a relation $R$ be a triple $R = (A,\hat{R},B)$ where $\hat{R} \subseteq A \times B$ is $R's$ extension. 
+        We allow the case where $\hat{R}$ is empty and the arrow of the form $(A,\emptyset,B)$.
+
+        The identity arrow on $A$ is the diagonal relation whose extension is $\{(a,a) \mid a \in A\}$.
+    \end{itemize}
+\end{example}
+
+
+
+
+
+\begin{thm}
+	Identity arrows on a given object are unique; and the identity arrows on distinct objects are distinct.
+\end{thm}
+
+
+
+%%-------------------------------------
+\subsection{Commutative diagrams}
+
+\zh{「交换」意指箭头的合成殊途同归}
+
+[Arbib and Manes, 1975, p. 2]: 
+``\textit{commutare} is the Latin for \textit{exchange}, 
+and we say that a diagram commutes if we can exchange paths, 
+between two given points, with impunity.''
+
+
+
+a diagram commutes if each minimal polygon in the diagram commutes.
+
+
+
+
+
+%%-------------------------------------
+\subsection{Constructing categories}
+
+a number of general constructions which give us new categories from old.
+
+
+
+% -----------------
+\subsubsection{Duality or Opposite}
+
+Maybe the simplest way of getting a new category from old is by simply \textit{reversing all the arrows}. 
+
+\begin{df}[Opposite category]
+	The \textbf{dual} or \textsf{opposite category} {\color{red} $\mathsf{C}^{op}$} of a given category $\mathsf{C}$ has the same objects as $\mathsf{C}$, 
+	while $\mathsf{C}^{op}(A,B) = \mathsf{C}(B,A)$ for all objects $A,B$.
+	%
+	The identity arrows remain the same, 
+	that is, 
+	$Id^{op}_A = Id_A$.
+	% 
+	Composition in $\mathsf{C}^{op}$ is defines in terms of composition in $\mathsf{C}$: 
+	$f \circ^{op} g = g \circ f$. 
+\end{df}
+
+
+% figure
+\begin{figure}[h]
+	\centering
+	\begin{tikzcd}
+		A \arrow[r, "f"] \arrow[rd, "g \circ f"'] & B \arrow[d, "g"] & \leadsto  & A & B \arrow[l,"f"'] \\
+			 & C  &  &   & C \arrow[u, "g"'] \arrow[lu, "f \circ^{op} g"] \\
+		\end{tikzcd}
+		
+		$\mathsf{C}$ and $\mathsf{C}^{op}$
+	\caption{Dual category}
+	\label{fig: dual-category}
+\end{figure}
+
+
+Clearly, 
+$(\mathsf{C}^{op})^{op} = \mathsf{C}$ which means that \textit{every category is the opposite of some other category}.
+
+
+\vspace{1.5em}
+
+
+Let {\color{purple} $L^{cat}$} be the elementary language of categories, 
+that is, 
+a {\color{teal} two-sorted first-order language} with identity with one sort of variable for objects, $A,B,C,\dots$, 
+and another sort for arrows $f,g,h,\dots$. 
+% 
+It has function symbols `$src$' and `$tar$', 
+denoting two operations taking arrows to objects, 
+a 2--ary function `$\circ$', 
+and a relation `\dots is the identity arrow for object \dots'. 
+
+
+\begin{df}[Dual formulas]
+	Suppose that $\phi \in L^{cat}$, 
+	its \textit{dual} {\color{purple} $\phi^{op}$} is a formula getting by (i) swapping `$src$' and `$tar$' and (ii) reversing the order of composition, i.e., 
+	`$f \circ g$' becomes `$g \circ f$', 
+	and so on and so forth.
+\end{df}
+
+
+
+\begin{thm}[Duality principle]
+	Suppose that $\phi$ is an $L^{cat}$--sentence (without free variables), 
+	that is, 
+	$\phi$ is a general clain about objects/arrows in an arbitrary category. 
+	% 
+	Then, 
+	if the axioms of category theory entail $\phi$,
+	they also entail the dual claim $\phi^{op}$.
+\end{thm}
+
+
+The duality principle might be very simple but it is a hugely labour-saving result.
+
+
+
+
+
+
+
+
+%%-----------------
+\subsubsection{Subcategories}
+
+The most usual way of getting a new category is by slimming down an old one while retaining enough categorial structure:
+
+\begin{df}[Subcategories]
+	Let $\mathsf{C}$ be a category. 
+	A \textit{subcategory} $\mathsf{S}$ of $\mathsf{C}$ consists of a subclass $\mathsf{ob(S)}$ of $\mathsf{ob(C)}$ together with, 
+	for each $\mathsf{S}$--object $A,B$, 
+	a subclass $\mathsf{S}(A,B)$ of $\mathsf{C}(A,B)$, 
+	such that $\mathsf{S}$ is closed under composition and identities. 
+	% 
+	It is a \textit{full subcategory} if $\mathsf{S}(A,B) = \mathsf{C}(A,B)$ for all $\mathsf{S}$--object $A,B$.
+\end{df}
+
+
+A full subcategory therefore consists of a selection of the objects, 
+with all the maps between them. 
+
+
+
+%%-----------------
+\subsubsection{Product categories}
+
+\begin{df}{Product categories}
+	If $\mathsf{C}$ and $\mathsf{D}$ are categories, 
+	a \textit{product category}	is $\mathsf{C} \times \mathsf{D}$ such that:
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)]
+		\item 
+		Its objects are paris $\langle C,D \rangle$ where $C$ is a $\mathsf{C}$--object and $D$ is a $\mathsf{D}$--object;
+		
+		\item
+		Its arrows from $\langle C,D \rangle$ to $\langle C',D' \rangle$ are all the pairs $\langle f,g \rangle$ where $f \colon C \to C'$ is a $\mathsf{C}$--arrow and $g \colon D \to D'$ is a $\mathsf{D}$--arrow;
+
+		\item 
+		The identity arrow of $\langle C,D \rangle$ is $Id_{\langle C,D \rangle} = \langle Id_C, Id_D \rangle$;
+
+		\item 
+		Composition is defined componentwise: 
+		$\langle f,g \rangle \circ \langle f', g' \rangle = \langle f\circ f', g \circ g' \rangle$.
+	\end{enumerate}
+\end{df}
+
+
+
+
+%%-------------------------------------
+\subsubsection{Slice categories}
+
+
+% -----------------
+\subsubsection{Arrow categories}
+
+
+\begin{df}[Arrow categories]
+	Let $\mathsf{C}$ be a category, 
+	the \textit{arrow category}	 {\color{purple} $\mathsf{C}^\to$} of  $\mathsf{C}$ has: 
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+		\item 
+		The $\mathsf{C}^\to$--objects are all the $\mathsf{C}$--arrow.
+
+		\item 
+		The $\mathsf{C}^\to$--arrows from $f \colon X \to Y$ to $g \colon W \to Z$ are the commutative squares in $\mathsf{C}$ formed by arrow $j \colon X \to W$ and $k \colon Y \to Z$ s.t. $k \circ f = g \circ j$.
+
+		\begin{center}
+		\begin{tikzcd}
+			X \arrow[r,"j"] \arrow[d, "f"'] & W \arrow[d, "g"] \\
+			Y \arrow[r, "k"']  & Z               
+		\end{tikzcd}
+		\end{center}
+
+		\item 
+		Composition is defined by amalgamating commuting squares in $\mathsf{C}$ to get another commuting square.
+
+		\item 
+		The identity arrow on a $\mathsf{C}^\to$--object is defined in the obvious way.
+	\end{enumerate}
+\end{df}
+
+
+
+
+\begin{example}
+	\qquad
+
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\alph*)] 
+		\item 
+		{\color{purple} $\mathsf{Set}^\to$}: whose objects are set functions, 
+		and whose arrows are suitable commutative squares.
+	\end{enumerate}
+\end{example}
+
+
+
+
+
+
+%%=============================================================================
+\subsection[So many arrows]{So many arrows}
+
+
+Characterizing a number of different kinds of arrows by the way they interact with other arrows.
+
+
+%%-------------------------------------
+\subsubsection{Monomorphisms \& Epimorphisms}
+
+
+\paragraph{Monomorphisms}
+
+
+\begin{df}[Monomorphisms]
+	An arrow $f$ in a category $\mathsf{C}$ is a \textit{monomorphism} (\textit{monic}, for short) iff it is {\color{teal} left-cancellable}, 
+	that is, 
+	whenever $g$ and $h$ are such that $f \circ g = f \circ h$, 
+	then $g = h$.  \zh{单态射}
+\end{df}
+
+
+That is, 
+if the composites $f \circ g$ and $f \circ h$ are to exist and be equal, 
+then $g$ and $h$ must be parallel arrows sharing the same source and target. 
+% 
+In other words, 
+if the following diagram commutes
+% 
+\begin{center}
+\begin{tikzcd}
+	A \arrow[r, "g", bend left] \arrow[r, "h"', bend right] & X \arrow[r, "f"] & Y
+\end{tikzcd}
+\end{center}
+% 
+then $g=h$.
+
+
+
+\begin{prop}
+	In the category $\mathsf{Set}$  where the arrows are set--functions, 
+	$f$ is \textit{injective} as a function 
+	iff
+	$f$ is a \textit{monomorphism}.
+\end{prop}
+\begin{proof}
+	\qquad
+
+	$\Rightarrow$ \quad
+	% 
+	Assume that $f \colon C \to D$ is injective, 
+	and for any functions $g \colon A \to C$ and $h \colon A \to C$ we have $f(g(x)) = f(h(x))$ where $x$ is arbitrary. 
+	% 
+	But that implies $g(x) = h(x)$, 
+	thus in arrow--speak, 
+	$f \circ g = f \circ h$ implies $g = h$, 
+	therefore $f$ is monomorphism. 
+
+
+	$\Leftarrow$ \quad
+	% 
+	Suppose $f \colon C \to D$ is \textit{not} injective, 
+	then for some $x,y \in C$ we have that $f(x)=f(y)$ but $x \not=y$.
+	% 
+	Let $1$ be any singleton, 
+	then $x$ and $y$ will be picked out by the functions $\bar{x} \colon 1 \to C$ and $\bar{y} \colon 1 \to C$ respectively. 
+	% 
+	Hence in $\mathsf{Set}$ we have $f \circ \bar{x} = f(x) = f(y) = f \circ \bar{y}$ but not $\bar{x} = \bar{y}$, 
+	which means that $f$ is not left--cancellable.
+\end{proof}
+
+
+
+
+Thus, 
+in $\mathsf{Set}$, 
+the monomorphisms are exactly the injective functions.
+
+
+
+
+\paragraph{Epimorphisms}
+
+Let's see the obvious dual notion for monomorphism.
+
+\begin{df}[Epimorphisms]
+	An arrow $f$ in a category $\mathsf{C}$ is an \textit{epimorphism} (\textit{epic}, for short) iff it is {\color{teal} right--cancellable}, 
+	in other words, 
+	whenever $g$ and $h$ are s.t. $g \circ f=h \circ f$, 
+	then $g = h$.
+\end{df}
+
+
+Left and right cancellability are evidently dual properties, 
+$f$ is right--cancellable in $\mathsf{C}$ iff it is left--cancellable in $\mathsf{C}^{op}$. 
+
+
+\begin{center}
+	Left--cancellable:
+	\begin{tikzcd}
+		A \arrow[r, "g", bend left] \arrow[r, "h"', bend right] & X \arrow[r, "f"] & Y
+	\end{tikzcd}
+	
+	\vspace{1em}
+	\hspace{6em}$\Updownarrow$ dual
+	\vspace{1em}
+
+	Right--cancellable:
+	\begin{tikzcd}
+		A & X \arrow[l, "g"', bend right] \arrow[l, "h", bend left] & Y \arrow[l, "f"']
+	\end{tikzcd}
+	
+\end{center}
+
+
+
+\begin{prop}
+	In $\mathsf{Set}$, 
+	$f$ is \textit{surjective} as a function iff $f$ is an \textit{epimorphism}.
+\end{prop}
+
+
+\vspace{2em}
+
+\tcbset{colback=white, width=\textwidth,boxrule=0.2mm} % boxrule调整边框线条粗细
+\begin{tcolorbox}[arc=2mm,title={monic v.s epic}] % arc调整表框四角弧度；
+
+	`\textit{mono}' means one, 
+	and the `\textit{monomorphisms}' are rather often the injective, one-to-one functions. 
+	While `\textit{epi}' is Greek for `\textit{on}' or `\textit{over}', 
+	and the `\textit{epimorphisms}' are  fairly often surjective, onto, functions. 
+
+\end{tcolorbox}
+
+
+\vspace{2em}
+
+
+\begin{thm}
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] 
+		\item 
+		Identity arrows are always monic. 
+		Dually, 
+		they are always epic too.
+
+		\item 
+		If $f,g$ are monic, so is $f \circ g$. 
+		If $f,g$ are epic, so is $f \circ g$.
+
+		\item 
+		If $f \circ g$ is monic, so is $g$. 
+		If $f \circ g$ is epic, so is $f$.
+	\end{enumerate}
+\end{thm}
+
+
+
+
+
+
+\paragraph{Symbols} 
+
+There is a notational convention that we use special styles of drawn arrows to represent cancellable arrows:
+
+\begin{center}
+{\color{purple} $f \colon C \monic D$} or {\color{purple} $C \stackrel{f}{\monic} D$} represents a monic, left--cancellable $f$; 
+
+
+{\color{purple} $f \colon C \epic D$} or {\color{purple} $C \stackrel{f}{\epic} D$} represents an epic, right--cancellable $f$.
+\end{center}
+
+
+
+The convention is easy  to remember: 
+(i) a left-cancellable arrow gets notated by an extra decoration on the tail of the arrow (i.e. on the left), 
+and  (ii) a right-cancellable arrow gets an extra decoration on the head (i.e. on the right).
+
+
+
+
+%%-------------------------------------
+\subsubsection{Inverses arrows ???}
+
+
+\begin{df}[Inverse]
+	Given an arrow $f \colon C \to D$ in a category $\mathsf{C}$:
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+		\item 
+		$g \colon D \to C$ is a \textit{right inverse} of $f$ iff $f \circ g = Id_D$.
+
+		\item 
+		$g \colon D \to C$ is a \textit{left inverse} of $f$ iff $g \circ f = Id_C$.
+
+		\item 
+		$g \colon D \to C$ is a \textit{inverse} of $f$ iff it is both a right inverse and a left inverse of $f$.
+	\end{enumerate}	
+\end{df}
+
+
+\begin{center}
+\begin{tikzcd}
+	C \arrow[r, "f", bend left] \arrow["Id_C"', loop, distance=2em, in=215, out=145] & D \arrow[l, "h", bend left] \arrow["Id_D"', loop, distance=2em, in=35, out=325]
+\end{tikzcd}
+\end{center}
+
+
+\begin{remark}
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=2em,topsep=5pt,label=(\alph*)] %% or label = \alph*, \roman*
+		\item 
+		$g \circ f = Id_C$ in $\mathsf{C}$ iff $f \circ^{op} g = Id_C$ in $\mathsf{C}^{op}$.
+		% 
+		A left inverse in $\mathsf{C}$ is a right inverse in $\mathsf{C}^{op}$, and vice versa. 
+
+		\item 
+		The notions of a right inverse and left inverse are dual to each other, 
+		and the notion of an inverse is its own dual.
+
+		\item 
+		If $f$ has a right (left) inverse $g$, 
+		then $f$ is a left (right) inverse of $g$.
+	\end{enumerate}
+\end{remark}
+
+
+\begin{thm}
+	In a category where arrows are functions, 
+	if $f$ has a left--inverse as an arrow, it is \textit{injective} as a function. 
+	And if $f$ has a right--inverse, it is \textit{surjective} as a function.
+\end{thm}
+
+
+For those typical concrete categories (arrows are functions): 
+
+\begin{center}
+\begin{tabular}{lllll}
+	$f$ has a left inverse & 
+	$\Rightarrow$ & 
+	$f$ is injective & 
+	$\Rightarrow$ & 
+	$f$ is monic (left--cancellable).  \\
+
+	$f$ has a right inverse & 
+	$\Rightarrow$ & 
+	$f$ is surjective & 
+	$\Rightarrow$ & 
+	$f$ is epic (right--cancellable).  \\	
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+every epic is a left inverse in $\mathsf{Set}$ is equivalent to the {\color{teal} Axiom of Choice}.
+
+
+
+
+
+\begin{thm}
+	If an arrow has both a right inverse and a left inverse, 
+	then these are the same and are the arrow's \textit{unique} inverse.
+\end{thm}
+
+
+
+%%-------------------------------------
+\subsubsection{Isomorphisms}
+
+
+
+\begin{df}[Isomorphisms]
+	An \textit{isomorphism} \zh{同构} in a category $\mathsf{C}$ is an arrow which has an inverse.  
+	% 
+	We conventionally represent isomorphisms by decorated arrows, 
+	thus: {\color{purple} $\isoarrow$}.
+\end{df}
+
+
+
+
+\begin{thm}
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+		\item 
+		Identity arrows are isomorphisms. 
+
+		\item 
+		The (unique) inverse $f^{-1}$ of an isomorphism $f$ is also an isomorphism.
+
+		\item 
+		If $f$ and $g$ are isomorphisms, 
+		then $g \circ f$ is an isomorphism if it exists, 
+		whose inverse will be $f^{-1} \circ g^{-1}$.
+	\end{enumerate}
+\end{thm}
+
+
+
+\begin{example}
+	\qquad
+
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] 
+		\item 
+		In $\mathsf{Set}$, the isomorphisms are the \textit{bijective} set--functions.
+
+		\item 
+		In $\mathsf{Grp}$, the isomorphisms are the \textit{bijective} group homomorphisms.
+	\end{enumerate}
+\end{example}
+
+
+
+Isomorphisms are monic and epic, 
+but arrows which are both monic and epic need not have inverses so need not be isomorphisms, e.g. in $\mathsf{Pos}$ and $\mathsf{Mon}$. 
+However, we do have this result:
+
+
+\begin{thm}
+	If \textit{f} is both monic and has a right inverse (or both epic and has a left inverse), 
+	then \textit{f} is an isomorphism. 
+	% 
+	Equivalently: 
+	if $f$ is both monic and split epic (or both epic and split monic), 
+	then $f$ is an isomorphism.
+\end{thm}
+
+
+
+
+\begin{df}
+	A category $\mathsf{C}$ is \textit{balanced} iff every arrow which is both monic and epic is an isomorphism. 
+	[$\monic + \epic ~\leadsto~ \monoepiarrow \quad \Rightarrow \quad \isoarrow$]
+\end{df}
+
+
+
+
+
+
+%%-------------------------------------
+\subsubsection{Isomorphic objects}
+
+
+\begin{df}
+	If there is an isomorphism $f \colon C \isoarrow D$ in $\mathsf{C}$ then the object $C$ and $D$ are said to be \textit{isomorphic} in $\mathsf{C}$, 
+	denoted as $C \cong D$.
+\end{df}
+
+
+\begin{prop}
+	Isomorphism between objects in a category $\mathsf{C}$ is an equivalence relation.
+\end{prop}
+
+
+
+
+\begin{example}
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\alph*)] %% or label = \alph*, \roman*
+		\item 
+		In $\mathsf{Grp}$, 
+		any two Klein four--groups are isomorphic in the categorial sense.
+
+		\item 
+		In $\mathsf{Set}$, 
+		any two \textit{singletons} are isomorphic. 
+		% 
+		More generally, 
+		any two objects in $\mathsf{Set}$ with the same cardinality are isomorphic.
+	\end{enumerate}
+	
+\end{example}
+
+
+Category theory typically doesn't care about the distinction between isomorphic objects.
+
+
+
+
+\begin{df}[Epi--mono factorization]
+	An arrow $f \colon C \to D$ has an \textit{epi--mono factorization} iff there is an epic arrow $e \colon B \epic C$ and a monic arrow $m \colon C \monic D$ s.t. $f = m \circ e$.
+\end{df}
+
+
+\begin{center}
+\begin{tikzcd}
+	B \arrow[rr, "f"] \arrow[rd, "e"', two heads] &  & D \\
+	 & C \arrow[ru, "m"', tail] &  
+\end{tikzcd}
+\end{center}
+
+
+\begin{thm} 
+	In $\mathsf{Set}$:
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+		\item 
+		Every arrow has an epi--mono factorization.
+
+		\item 
+		If $f \colon B \to D$ \textit{factors} both as 
+		$B \stackrel{e}{\epic} C \stackrel{m}{\monic} D$ and as 
+		$B \stackrel{e'}{\epic} C' \stackrel{m'}{\monic} D$, 
+		then $C \cong C'$.
+	\end{enumerate}
+\begin{center}
+\begin{tikzcd}
+	& C' \arrow[rd, "m'", tail] &   \\
+   B \arrow[rr, "f" description] \arrow[rd, "e"', two heads] \arrow[ru, "e'", two heads] &     & D \\
+	& C \arrow[ru, "m"', tail]  &  
+\end{tikzcd}
+\end{center}
+\end{thm}
+
+
+
+Note that the epi--mono factorization is not always available in a given category. 
+
+
+
+\vspace{3em}
+
+\textit{groupoid} \zh{广群}
+
+
+
+
+%%=============================================================================
+\subsection{Initial and final objects}
+
+
+Characterizing an object by the way it relates to other objects. 
+% 
+For instance, 
+in $\mathsf{Set}$, 
+the \textit{empty set} is distinguished by being such that there is one and only one arrow from it to any object. 
+And a \textit{singleton} is distinguished by being such that there is one and only one arrow to it from any object.
+
+
+
+
+\begin{df}[Initial and final objects]
+	An object $X$ is \textit{initial} in a category $\mathsf{C}$ if for every object $A$ in $\mathsf{C}$ there is a unique arrow $\alpha! \colon X \to A$, 
+	and \textit{final}/\textit{terminal} if for all $A$ there is a unique $\alpha! \colon A \to X$.
+\end{df}
+
+
+
+
+
+\begin{remark}
+	The use of `!' to signal the unique arrows from an initial object or to a terminal object is quite common. 
+
+	The initial and finial objects in a given category may not unique.	
+
+	A category may have zero, one or many initial objects, 
+	and (independently of that) may have zero, one or many terminal objects.
+
+	An object can be both initial and terminal.
+\end{remark}
+
+
+
+\begin{example}
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\alph*)] %% or label = \alph*, \roman*
+		\item 
+		In $\mathsf{Set}$, 
+		the empty set $\emptyset$ is the {\color{teal} unique initial object}, 
+		and the final objects are precisely the singletons. 
+
+		\item 
+		In $\mathsf{Set}_\star$, 
+		the category whose objects are non--empty sets equipped with a distinguished element and whose arrows are functions preserving distinguished element,
+		each singleton is both initial and terminal.
+
+		\item 
+		In $\mathsf{Rel}$, 
+		the category of sets and relations, 
+		the empty set is both the sole initial and sole terminal object.
+
+
+		\item 
+		In $\mathsf{Grp}$, 
+		the one--element group is an initial object, 
+		also final.
+
+
+		\item 
+		In $\mathsf{Prop}_L$, 
+		the category of propositional in FO language $L$, 
+		$\bot$ is initial and $\top$ is terminal.
+	\end{enumerate}
+\end{example}
+
+
+
+
+\begin{df}[Null objects]
+	An object $O$ in a category $\mathsf{C}$ is a \textit{null/zero object} \zh{零对象} iff it is both initial and final.	
+\end{df}
+
+
+
+For every general result about initial objects, 
+there is a dual result about terminal objects.
+
+
+
+\begin{thm}[Uniqueness up to unique isomorphism]
+	If initial objects exist, 
+	then they are `\textit{unique up to unique isomorphism}', 
+	that is, 
+	if the $\mathsf{C}$--objects $I$ and $J$ are both initial, 
+	then there is a unique isomorphism $f \colon I \isoarrow J$ in $\mathsf{C}$. 
+	% 
+	Dually for terminal objects.
+\end{thm}
+
+
+
+
+\begin{thm}
+	If $I$ is initial in $\mathsf{C}$ and $I \cong J$, 
+	then $J$ is also initial. 
+	% 
+	Dually for terminal objects.
+\end{thm}
+
+
+\begin{df}
+	We now use `{\color{purple} 0}' to denote an initial object (assuming it exists)  and `{\color{purple} 1}' to denote a terminal object.
+\end{df}
+
+
+
+\begin{prop}
+	In a category with a terminal object, 
+	any arrow $f \colon 1 \to X$ is \textit{monic}.
+\end{prop}
+
+
+
+
+
+%%=============================================================================
+\subsection{Products \& Coproducts}
+
+
+
+%%-------------------------------------
+\subsubsection{Warm up}
+
+
+
+%%-------------------------------------
+\subsubsection{}
+
+
+\begin{df}[Products \& Coproducts]
+	A \textit{product} of two objects $A_0$ and $A_1$ in a category $\mathsf{C}$ consists of a triple 
+	$(A, A \xrightarrow{\alpha_0} A_0, A \xrightarrow{\alpha_1} A_1)$, 
+	such that for every triple 
+	$(A', A' \xrightarrow{\alpha'_0} A_0, A' \xrightarrow{\alpha'_1} A_1)$ there is a unique arrow $f \colon A' \to A$ such that $\alpha_i \circ f = \alpha'_i$ for both $i$.
+
+
+	% figure
+	\begin{figure}[h]
+		\centering
+		\begin{tikzcd}
+			& A \arrow[ld, "\alpha_0"'] \arrow[rd, "\alpha_1"]   &     \\
+		A_0 &    & A_1 \\
+			& A' \arrow[uu, "f" description] \arrow[ru, "\alpha'_1"'] \arrow[lu, "\alpha'_0"] &    
+		\end{tikzcd}
+		\caption{product of objects}
+		\label{fig: product-of-objects}
+	\end{figure}
+	
+	\textbf{Coproducts} of $A_0$ and $A_1$ are defined dually as triples $(A, A_0 \xrightarrow{\alpha_0} A, A_1 \xrightarrow{\alpha_1} A)$, 
+	such that for every triple 
+	$(A', A_0 \xrightarrow{\alpha'_0} A', A_1 \xrightarrow{\alpha'_1} A')$ there is a unique arrow $f \colon A \to A'$ such that $f \circ \alpha_i  = \alpha'_i$ for each $i$. 
+	% 
+	% figure
+	\begin{figure}[h]
+		\centering
+		\begin{tikzcd}
+			& A \arrow[dd, "f" description] &      \\
+			A_0 \arrow[ru, "\alpha_0"] \arrow[rd, "\alpha'_0"'] &                               & A_1 \arrow[lu, "\alpha_1"'] \arrow[ld, "\alpha'_1"] \\
+			& A'    &           
+		\end{tikzcd}
+		\caption{Coproducts}
+		\label{fig: coproducts}
+	\end{figure}
+\end{df}
+
+
+
+\begin{example}
+	The category $\mathsf{Set}$ has both products and coproducts --- 
+	that is, 
+	every pair $(S_0,S_1)$ of sets has both a product 
+	--- 
+	the cartesian product $S_0 \times S_1$ together with the two projection functions $\pi_i \colon S_0 \times S_1 \to S_i$. 
+
+
+	% figure
+	\begin{center}
+	\begin{tikzcd}
+		& S_0 \times S_1 \arrow[ld, "\pi_0"'] \arrow[rd, "\pi_1"] &     \\
+	S_0 &                                                         & S_1
+	\end{tikzcd}
+	\end{center}
+
+
+	And a coproduct ---
+	the disjoint union $S_0 \uplus  S_1 = S_0 \times \{0\} \cup S_1 \times \{1\}$ together with the coproduct maps $\kappa_0$ and $\kappa_1$ given by 
+	$\kappa_i(s) = (s,i)$.
+
+
+	% figure
+	\begin{center}
+	\begin{tikzcd}
+		& S_0 \uplus S_1 &        \\
+		S_0 \arrow[ru, "\kappa_0"] &    & S_1 \arrow[lu, "\kappa_1"']
+	\end{tikzcd}
+	\end{center}
+\end{example}
+
+
+
+%%=============================================================================
+\clearpage

@@ -1,0 +1,120 @@
+\section{Functors}
+
+
+
+\begin{df}[Functors]
+	A \textbf{functor} $\Omega \colon \mathsf{C} \to \mathsf{D}$ from category $\mathsf{C}$ to category $\mathsf{D}$ consists of an operation mapping objects and arrows of $\mathsf{C}$ to objects and arrows of $\mathsf{D}$, 
+	respectively, 
+	in such a way that for all objects and arrows involved
+    % 
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=4em,topsep=5pt,label=(\arabic*)]
+		\item 
+        $\Omega f \colon \Omega A \to \Omega B$ if $f \colon A \to B$.
+		
+		\item 
+        $\Omega(Id_A) = Id_{\Omega A}$. 
+
+		\item 
+        $\Omega(g \circ f) = (\Omega g) \circ (\Omega f)$
+	\end{enumerate}
+
+	A functor $\Omega \colon \mathsf{C} \to \mathsf{D}^{op}$ is sometimes called a \textbf{contravariant functor} from $\mathsf{C}$ to $\mathsf{D}$.
+
+
+	An \textbf{endofunctor} on $\mathsf{C}$ is a functor $\Omega \colon \mathsf{C} \to \mathsf{C}$.
+\end{df}
+
+
+
+
+\begin{example}[Set functors]
+	We consider the following endofunctor on $\mathsf{Set}$. 
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+		\item For a fixed set $C$, 
+		the \textbf{constant functor} mapping all sets to $C$ and all arrows to $id_C$; 
+		this functor is denoted as {\color{red} $C$}.
+
+
+		\item The \textbf{power set functor} $\mathcal{P}$, 
+		which maps amy set $S$ to its powerset $\mathcal{P} S$, 
+		and any map $f \colon S \to S'$ to the map 
+		$\mathcal{P} f \colon \mathcal{P} S \to \mathcal{P} S'$ given by $\mathcal{P} f \colon X \mapsto f[X]$, 
+		where $f[X] = \{fx \in S' \mid x \in X \subseteq S\}$.
+
+
+		\item For every cardinal $\kappa$, 
+		the variant {\color{red} $\mathcal{P}_\kappa$} of the powerset functor, 
+		which maps any set $S$ to the collection $\mathcal{P}_\kappa \coloneqq \{X \subseteq S \mid |X| < \kappa\} \subseteq \mathcal{P}S$, 
+		and agrees with $\mathcal{P}$ on the arrows for which is defined.
+	\end{enumerate}	
+\end{example}
+
+
+
+
+\begin{df}[Product of functors]
+	Given two functors $\Omega_0$ and $\Omega_1$, 
+	their \textbf{product functor} $\Omega_0 \times \Omega_1$ is given on objects by 
+	\[
+		(\Omega_0 \times \Omega_1) S 
+		\coloneqq 
+		\Omega_0 S \times \Omega_1 S,
+	\]
+	while for $f \colon S \to S'$ 
+	the map $(\Omega_0 \times \Omega_1)f$ is given as 
+	\[
+		((\Omega_0 \times \Omega_1)f) (\sigma_0,\sigma_1) 
+		\coloneqq 
+		((\Omega_0 f)(\sigma_0), (\Omega_1 f)(\sigma_1)).
+	\]
+
+	The \textbf{coproduct functor} is defined similarly.
+\end{df}
+
+
+
+
+\begin{df}[Identity functor]
+	Every category $\mathsf{C}$ admits the \textbf{identity functor} $\mathcal{I}_\mathsf{C} \colon \mathsf{C} \to \mathsf{C}$ which is the identity on both objects and arrows of $\mathsf{C}$.
+\end{df}
+
+
+
+
+
+
+\begin{df}[Natural transformation]
+	Let $\mathsf{C}$ and $\mathsf{D}$ be two categories, and let $\Omega$ and $\Psi$ be two functors from $\mathsf{C}$ to $\mathsf{D}$. 
+	A \textbf{natural transformation} $\tau$ from $\Omega$ to $\Psi$, 
+	notation {\color{red} $\tau \colon \Omega \Rightarrow \Psi$}, 
+	consists of $\mathsf{D}$-arrows $\tau_A \colon \Omega A \to \Psi A$ such that 
+	\[
+		\tau_B \circ \Omega f = \Psi f \circ \tau_A
+	\]
+	for each $f \colon A \to B$ in $\mathsf{C}$.
+
+	% figure
+	\begin{figure}[h]
+		\centering
+		\begin{tikzcd}
+			& A \arrow[d, "f"'] & {} \arrow[r, "\Omega", dashed, bend left] & {} & \Omega A \arrow[r, "\Omega f"] \arrow[d, "\tau_A"'] \arrow[rd] & \Omega B \arrow[d, "\tau_B"] &            \\
+ 			\mathsf{C} & B                 & {} \arrow[r, "\Psi"', dashed, bend right] & {} & \Psi A \arrow[r, "\Psi f"']                                    & \Psi B                       & \mathsf{D}
+ 		\end{tikzcd}
+		\caption{$\tau \colon \Omega \Rightarrow \Psi$}
+		\label{fig:}
+	\end{figure}
+
+\end{df}
+
+
+
+
+???? equivalent , isomorphic,   dual/ dually equivalent
+
+
+
+
+
+
+% /////////////////////////////////////////////////////////////////////////////
+\clearpage

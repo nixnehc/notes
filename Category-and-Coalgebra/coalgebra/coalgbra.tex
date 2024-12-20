@@ -1,0 +1,206 @@
+\section{Coalgebra}
+
+
+Coalgebra can be conceived as a general and uniform theory of \textit{dynamic systems}, taken in a broad sense. 
+% 
+Many structures in mathematics and theoretical computer science can naturally be represented as coalgebras.
+
+
+
+Probably the first example was provided by Aczel [2], 
+who models \textit{transition systems} and \textit{non--well--founded sets} as coalgebras. 
+
+
+\vspace{2em}
+
+
+For \textsf{modal logicians}, 
+it will be Kripke \textsf{frames} and \textsf{models} that provide the prime examples of coalgebras, 
+this link goes back to at least Abramsky [1].
+
+
+In fact, 
+the modal model theory is coalgebraic in nature, so modal logicians entering the field will have much the same experience as group theorists learning about universal algebra, 
+in that they will recognize many familiar notions and results, 
+lifted to a higher level of generality and abstraction.
+
+\vspace{2em}
+
+
+- {\color{purple} algebraic operations} are ways to construct complex objects out of simple ones, 
+{\color{purple} coalgebraic operations}, going out of the carrier set, should be seen as ways to unfold or observe objects.
+
+
+
+- coalgebras over the base category $\mathsf{C}$ are dual to algebras over the opposite category $\mathsf{C}^{op}$. 
+This explains not only the name ``coalgebra''.
+
+
+- the link between modal logics and coalgebra is so tight, that one may even claim that {\color{teal} modal logic is the natural logic for coalgebras --- just like equational logic is that for algebra}.
+
+
+
+
+
+\begin{df}[Coalgebras] \zh{余代数}
+	Given an endofunctor (see Def.~\ref{}) $\Omega$ on a category $\mathsf{C}$, 
+	an \textbf{$\Omega$--coalgebra} is a pair {\color{red} $\mathbb{A} = (A,\alpha)$}, 
+	also denoted as {\color{red} $\mathbb{A} = (A, \alpha \colon A \to \Omega A)$} or {\color{red} $\mathbb{A} = (A, A \xrightarrow{\alpha} \Omega A)$}, 
+	where $A$ is an object of $\mathsf{C}$ called the \textbf{carrier} of $\mathbb{A}$, 
+	and $\alpha \colon A \to \Omega A$ is an arrow in $\mathsf{C}$, 
+	called the \textbf{transition map} of $\mathbb{A}$. 
+
+	In that case that $\Omega$ is an endofunctor on $\mathsf{Set}$, 
+	$\Omega$--coalgebras may also be called \textbf{$\Omega$--systems}. 
+	% 
+	A \textbf{pointed $\Omega$-system} is a triple {\color{red} $(A,\alpha,a)$} where $(A,\alpha)$ is an $\Omega$-system and $a \in A$. 
+\end{df}
+
+
+An $\Omega$--coalgebra $\mathbb{A} = (A,\sigma)$ can be pictured by
+% figure
+\begin{figure}[h]
+	\centering
+	\begin{tikzcd}
+		A \arrow[r, "\alpha"] & \Omega A
+	\end{tikzcd}
+	\caption{$\Omega$--Coalgebra $\mathbb{A} = (A,\sigma)$}
+	\label{fig:}
+\end{figure}
+
+
+
+\begin{example}[Automata]
+	\textsf{Deterministic automata} are usually modeled as quintuples 
+	\[
+		\mathbb{A} = 
+		(Q,a_0,\Sigma,\delta,F)
+	\]
+	such that $Q$ is the state space of the automaton, 
+	$a_0 \in Q$ is its \textit{initial state}, 
+	$\Sigma$ its \textit{alphabet}, 
+	$\delta \colon Q \times \Sigma \to Q$ its \textit{transition function} and finally, 
+	$F \subseteq Q$ its \textit{accepting states}. 
+
+
+	We can represent $F$ by by its characteristic map $C_F \colon Q \to 2$ (where $2$ denoting the set $\{0,1\}$) such that $C_F (a) = 1$ if $a \in F$ and $C_F (a) = 0$ otherwise. 
+	% 
+	Furthermore, we can view $\delta$ as a map from $Q \to Q^\Sigma$:
+	\[
+		\delta \colon Q \times \Sigma \to Q 
+			\qquad \leadsto \qquad 
+		\delta \colon Q \to (\Sigma \to Q) 
+			\qquad \leadsto \qquad 
+		\delta \colon Q \to Q^\Sigma
+	\]
+	where $Q^\Sigma$ denotes the collection of maps from $\Sigma$ to $Q$. 
+
+	Thus, 
+	we may represent a deterministic automaton over the alphabet $\Sigma$ as a {\color{purple} \textit{pointed system}} over the functor $\Omega \colon S \mapsto 2 \times S^\Sigma$ for any set $S$.
+\end{example}
+
+
+
+
+\begin{example}[Kripke Frames \& Models]
+	We now see that Kripke frames and models are in fact coalgebras in disguise.	
+
+	\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)]
+	
+	\item 
+	\textbf{Frame}: 
+	Considering the frame $\mathfrak{F} = (W,R)$ (for the basic modal similarity type).
+	% 
+	The crucial observation is that the binary relation $R$ on $W$ can be represented as the function 
+	\[
+		R[\cdot] \colon W \to \mathcal{P}W
+	\]
+	mapping a point $w$ to its $R$--successors $R[w] = \{u \in W \mid Rwu\}$. 
+	% 
+	Thus frames $\mathfrak{F} = (W,R)$ correspond to coalgebras over the {\color{purple} powerset functor $\mathcal{P}$}. 
+	% 
+	Therefore, 
+	a frame $\mathfrak{F} = (W,R)$ is a {\color{purple} $\mathcal{P}$--coalgebra} or {\color{purple} $\mathcal{P}$--system} $(W, R \colon W \to \mathcal{P}W)$. 
+	% 
+	\textbf{Pointed frame} $(\mathfrak{F},w)$ is just the {\color{purple} pointed $\mathcal{P}$--system} $(W, W \xrightarrow{R} \mathcal{P}W, w)$.
+
+	(Note that:
+	the powerset functor $\mathcal{P}$ maps any set $S$ to its powerset $\mathcal{P}(S)$ and a function $f \colon S \to S'$ to the image map $\mathcal{P}f$ given by 
+	$(\mathcal{P}f)(X) \coloneqq f[X] = \{f(x) \mid x \in X\}$.)
+
+	
+
+	\item 
+	\textbf{Image finite frames},
+	that is, frames in which $R[w]$ is finite for all points $w$, 
+	correspond to coalgebras over the {\color{purple} finitary powerset functor $\mathcal{P}_\omega$}.
+
+	
+	\item  
+	\textbf{Ternary frames}: 
+	% 
+	$W$ with a ternary relation $T \subseteq W^3$ forms a ternary frame $(W,T)$ (a frame for temporal logic with since $S$ or until $U$). 
+	% 
+	Similarly, $T$ can be represented as 
+	\[
+		T[\cdot] \colon W \to \mathcal{P}(W^2)
+	\]
+	s.t. $T[w] = \{(w_1,w_2) \in W^2 \mid (w,w_1,w_2) \in T\}$. 
+	% 
+	Thus, 
+	a ternary frame $(W,T)$ is a coalgebra $(W, T \colon W \to \mathcal{P}(W^2))$  under the functor $\Omega$ which $\Omega \colon S \mapsto \mathcal{P}(S^2)$ for any set $S$, 
+	and for function $f \colon S \to S'$,
+	$\Omega f$  is given by 
+	$(\Omega f)(R) \coloneqq \{(f(x_1),f(x_2) \mid (x_1,x_2) \in R)\}$ where $R$ is a (binary) relation in $\mathcal{P}(S^2)$.
+
+	
+
+	\item \textbf{Models}: 
+	Now concerning models with the form $\mathfrak{M} = (W,R,V)$. 
+	% 
+	It is easy to see that a valuation $V \colon \mathsf{PROP} \to \mathcal{P}(W)$ could equivalently have been defined as a $\mathcal{P}(\mathsf{PROP})$--coloring of $W$, 
+	that is, 
+	mapping a state $w$ to the collection 
+	\[
+		V^{-1}[s] = \{p \in \mathsf{PROP} \mid s \in V(p)\}
+	\]
+	of proposition letters holding at $w$. 
+	% 
+	Thus models can be identified with coalgebras of the functor $\Omega$ given by 
+	\[
+		\Omega \colon W \mapsto \mathcal{P}(\mathsf{PROP}) \times \mathcal{P}(W)
+	\]
+	for any set $W$,  
+	and for function $f \colon S \to S'$, 
+	$\Omega f$ is given by $(\Omega f)(X',X'') \coloneqq (f[X],f[X''])$ where $X \subseteq S$ and $X'' \subseteq S''$.
+
+	\item Recap:
+	
+	For frame $\mathfrak{F} = (W,R)$ and model $\mathfrak{M} = (W,R,V)$, 
+	the corresponding coalgebras are \\
+	
+	$\begin{array}{lll}
+		\mathfrak{F} = (W,R): 
+		& 
+		(W, W \xrightarrow{R} \mathcal{P}W)
+		& 
+		\text{where~}
+		R(w) =\{u \in W \mid Rwu\}  \\  
+
+		\\
+
+		\mathfrak{M} = (W,R,V):
+		&
+		(W, W \xrightarrow{\alpha} \mathcal{P}(\mathsf{PROP}) \times \mathcal{P}W) 
+		&
+		\text{where~}
+		\alpha(w)=\langle \{p \mid w \Vdash p\},R(w)  \rangle
+	\end{array}$
+	\end{enumerate}
+\end{example}
+
+
+
+\begin{example}[Neighborhood frames]
+	\textbf{contravariant powerset functor} $\breve{\mathcal{P}}$
+\end{example}
