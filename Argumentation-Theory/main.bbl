@@ -47,12 +47,6 @@ Martin Diller, Adrian Haret, Thomas Linsbichler, Stefan R{\"u}mmele, and Stefan 
 \newblock {\em International Journal of Approximate Reasoning}, 93:395--423, February 2018.
 \newblock \href {https://doi.org/10.1016/j.ijar.2017.11.013} {\path{doi:10.1016/j.ijar.2017.11.013}}.
 
-\bibitem{Dod.Wol2014}
-Dragan Doder and Stefan Woltran.
-\newblock Probabilistic argumentation frameworks -- a logical approach.
-\newblock In Umberto Straccia and Andrea Cal{\`i}, editors, {\em Scalable Uncertainty Management (SUM 2014)}, LNAI 8720, pages 134--147, Cham, 2014. Springer International Publishing.
-\newblock \href {https://doi.org/10.1007/978-3-319-11508-5_12} {\path{doi:10.1007/978-3-319-11508-5_12}}.
-
 \bibitem{Dun1995}
 Phan~Minh Dung.
 \newblock On the acceptability of arguments and its fundamental role in nonmonotonic reasoning, logic programming and {\emph{n}}-person games.

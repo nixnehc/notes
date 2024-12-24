@@ -1,0 +1,91 @@
+\section{Interlude: Structured Argumentation}
+
+
+When we want a more detailed formalisation of arguments we can turn to structured argumentation, 
+in which we assume a \textit{formal language} for representing \textbf{knowledge}, 
+and specifying how \textit{arguments} and \textit{counterarguments} can be constructed from that knowledge.
+
+
+
+An argument is then said to be \textit{structured} in the sense that normally the \textit{premises} and \textit{claim} of the argument are made explicit, 
+and the relationship between the premises and claim is formally defined.
+% 
+This means we can describe arguments and attacks is structured argumentation as follows:
+\begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
+    \item 
+    \textit{Argument}
+
+    \item 
+    \textit{Attack}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+%%=============================================================================
+\clearpage
+\section{Assumption--based Argumentation}
+
+
+Assumption--Based Argumentation (ABA) is a form of \textbf{structured argumentation}, 
+the notions of argument and attack are not primitive but are instead defined in terms of other notions, 
+these notions are  
+\textit{rules} (in an underlying deductive system), 
+\textit{assignments} and their \textit{contraries}.
+
+
+ABA is an instance of AA.
+
+
+
+\vspace{1.5em}
+
+\textit{deductive system}: 
+$(\mathcal{L},\mathcal{R})$ where $\mathcal{L}$ is a language (a set of sentences) and $\mathcal{R}$ a set of \textit{inference rules} that induces a derivability relation $\vdash$ on $\mathcal{L}$.
+
+
+
+$Th(T) = \{\phi \in \mathcal{L} \mid T \vdash \phi\}$
+
+
+An \textit{assumption--based argumentation framework} (ABA framework) is a tuple 
+\[
+ \langle \mathcal{L}, \mathcal{R}, A, ^- \rangle
+\] 
+where 
+\begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
+    \item 
+    $\langle \mathcal{L}, \mathcal{R} \rangle$ is a deductive system;
+
+    \item 
+    $A \subseteq \mathcal{L}$ is a non--empty finite set of \textit{assumptions}; 
+
+    \item 
+    $\bar{(\cdot)}$ is a total mapping from $A$ to $\mathcal{L}$, 
+    called the \textit{contrary function}, 
+    {\color{purple} $\bar{a}$} is referred to as the \textit{contrary} of $a$ for $a \in A$.
+\end{itemize}
+
+
+
+Each rule in $\mathcal{R}$ with a \textit{head} and a \textit{body}, 
+where the head is a sentence in $\mathcal{L}$ and the body consists of $m \geq 0$ sentences in $\mathcal{L}$.
+% 
+Rules can be written in different formats, 
+e.g., 
+a rule with head $\sigma_0$ and body $\sigma_1, \ldots, \sigma_m$ can be written as 
+\[
+\sigma_0 \leftarrow \sigma_1, \ldots, \sigma_m 
+\qquad \text{or} \qquad
+\dfrac{\sigma_1, \dots,\sigma_m}{\sigma_0}.
+\]
+
+
+
+
+

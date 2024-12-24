@@ -1,10 +1,7 @@
-%% pdf 加密操作：
-%\special{pdf:encrypt ownerpw (xxxxx) userpw () length 128 perm 2052} 
 %///////////////////////////////////////////////////////////////////////////////
 \documentclass[12pt,a4]{article} % or report
 \usepackage{cx}
 \usepackage{cx_ml}
-
 \usepackage[open,openlevel=2,numbered]{bookmark}
 % \pdfbookmark[section]{Contents}{toc} % 在生成的 pdf 书签中添加 “目录”
 
@@ -18,31 +15,15 @@
 
 
 %% 行距、段距设置
-%\linespread{1.2}     % 设置基本行距。
+%\linespread{1.2}    % 设置基本行距。
 % article 文档类的默认是1，即1.2倍字号大小；
 % ctexart 文档类的默认是1.3，即1.56倍字号大小。
 \setlength\parskip{5pt}   % 段间距
 
 
-%% 将默认的「标题」改为自定义内容
-%\renewcommand{\contentsname}{My list of contents}
-%\renewcommand{\listfigurename}{My list of figures}
-%\renewcommand{\listtablename}{My list of table}
-%\renewcommand{\bibname}{参考文献}
-%\renewcommand{\figurename}{图}
-%\renewcommand{\tablename}{表}
-
-
-%% 另一种花体
-%\usepackage{mathrsfs}   
-
 
 \usepackage{caption,subcaption}   
 % 可以用 \caption*{} 不把图片或表格进行编号 
-
-
-%% 各章前添加一个目录:
-%\usepackage{titletoc}      
 
 
 %% 边注
@@ -77,6 +58,8 @@
 
 
 
+
+
 %% 自定义
 \newcommand{\att}{\rightharpoonup} % 自定义「攻击关系」
 \newcommand{\zh}[1]{{\color{gray}(\small\ttfamily #1)}} %中文注译
@@ -103,6 +86,7 @@
 \input{section/sec-2}
 \include{section/sec-dynamic}
 \include{overview/overview}
+\include{section/assumption-based}
 \include{appendix/appendix}
 
 

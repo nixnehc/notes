@@ -10,15 +10,6 @@
 \usepackage{indentfirst}
 \usepackage{algpseudocode}
 
-
-
-
-%% 行距、段距设置
-%\linespread{1.2}     % 设置基本行距。
-% article 文档类的默认是1，即1.2倍字号大小；
-% ctexart 文档类的默认是1.3，即1.56倍字号大小。
-\setlength\parskip{5pt}   % 段间距
-
 \usepackage[
 	backend=bibtex,
 	style=numeric-comp,
@@ -28,6 +19,13 @@
 	backrefstyle=three]
 	{biblatex}
 \addbibresource{/Users/chenxin/Desktop/chenxin-biblatex.bib}
+
+
+%% 行距、段距设置
+%\linespread{1.2}     % 设置基本行距。article 默认是1，即1.2倍字号大小； ctexart 默认是1.3，即1.56倍字号大小。
+\setlength\parskip{5pt}   % 段间距
+
+
 
 
 
@@ -41,7 +39,7 @@
 \newcommand{\blank}{\sqcup}
 
 %%=============================================================================
-\title{Notes on Logic, Computability \& Complexity}
+\title{Notes on Computability \& Complexity}
 \author{\textsc{Xin Chen} \qquad \href{mailto:chenxin_hello@outlook.com}{\textsf{chenxin\_hello@outlook.com}}  
 	\qquad 
 	$Q_{uality} = \int (\text{\Large $K$},P,t)$}

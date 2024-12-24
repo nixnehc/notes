@@ -10,14 +10,16 @@
 \contentsline {subsubsection}{\numberline {1.2.7}Ideal and Eager Semantics (coming in soon)}{10}{subsubsection.1.2.7}%
 \contentsline {subsubsection}{\numberline {1.2.8}Stage Semantics (coming in soon)}{10}{subsubsection.1.2.8}%
 \contentsline {subsubsection}{\numberline {1.2.9}$CF2$ and stage2 Semantics (coming in soon)}{10}{subsubsection.1.2.9}%
-\contentsline {subsection}{\numberline {1.3}Computational problems and Complexity}{10}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}A summary}{12}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Some extensions}{14}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Preference--based AF}{14}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Value--based AF}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Probabilistic AF}{14}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Dynamic}{18}{section.3}%
-\contentsline {section}{\numberline {4}Overview}{19}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Belief Revision and Argumentation}{19}{subsection.4.1}%
-\contentsline {section}{\numberline {A}Probability Measures and Distributions}{20}{appendix.A}%
-\contentsline {section}{References}{22}{section*.8}%
+\contentsline {subsection}{\numberline {1.3}Computational problems and Complexity}{11}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}A summary}{13}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Some extensions}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Preference--based AF}{16}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Value--based AF}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Probabilistic AF}{16}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Dynamic}{20}{section.3}%
+\contentsline {section}{\numberline {4}Overview}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Belief Revision and Argumentation}{21}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Interlude: Structured Argumentation}{22}{section.5}%
+\contentsline {section}{\numberline {6}Assumption--based Argumentation}{23}{section.6}%
+\contentsline {section}{\numberline {A}Probability Measures and Distributions}{24}{appendix.A}%
+\contentsline {section}{References}{26}{section*.8}%

@@ -1155,6 +1155,8 @@ and not every argument framework has stable extensions.
 \subsubsection{Semi-Stable Semantics (coming in soon)}
 
 
+
+
 % \textit{Semi-stable semantics} ($\mathcal{SST}$) 
 
 
@@ -1174,15 +1176,60 @@ and not every argument framework has stable extensions.
 \subsubsection{$CF2$ and stage2 Semantics (coming in soon)}
 
 
+cf2: $\mathcal{CF}2$
+
+ideal: $\mathcal{ID}$
+
+semi--stable: $\mathcal{SST}$ 
+
+stage: $\mathcal{STG}$
+
+\begin{df}
+    Let $AF = (Arg,\att)$ be an AF. 
+    For a conflict--free set $X$, it holds that:
+    \begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
+        \item 
+        $X \in \mathcal{ID}(AF)$ iff $X$ is $\subseteq$--maximal among $\{X' \mid X' \in ad(AF) ~\&~ X'\subseteq E \text{ for each~} E \in \mathcal{PR}(AF)\}$.
+
+        \item 
+        $X \in \mathcal{SST}(AF)$ iff $X \in ad(AF)$ and there is no $T \in ad(AF)$ with $X^\oplus \subset T^\oplus$, 
+        where $X^\oplus = X^+ \cup X^-$, similar for $T^\oplus$.
+
+        \item 
+        $X \in \mathcal{STG}(AF)$ iff there is no $T \in cf(AF)$ with $X^\oplus \subset T^\oplus$.
+    \end{itemize}
+
+    Following, 
+    we give the recursive definition of $CF2$ semantics.
+    % 
+    $X \in \mathcal{CF}2(AF)$ if
+    \begin{itemize}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt]
+        \item 
+         $X \in \mathcal{NA}(AF)$ if $|SCC_{S_F}|=1$, and 
+
+        \item
+        $\forall S \in SCC_{S_F}$, 
+        $X \cap S \in \mathcal{CF}2(AF\downharpoonright )$; 
+        otherwise.
+    \end{itemize}
+\end{df}
+
+
+
+
+
+
 
 
 % /////////////////////////////////////////////////////////////////////////////
+\clearpage
 \subsection{Computational problems and Complexity}
 
+When studying computational complexity we are only interested in AFs where the arguments set $Arg$ is finite.
 
 
-Given an AF $AF=(Arg,\att)$ and a semantics $\sigma$, 
-there are three kinds of computational problems usually be considered:
+Given an AF $AF=(Arg,\att)$ and a semantics/property $\sigma$, 
+there are several kinds of computational problems usually be considered:
 \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
     \item 
     the \textit{verification problem}  \zh{验证问题}, 
@@ -1192,7 +1239,7 @@ there are three kinds of computational problems usually be considered:
 
     \item 
     the \textit{credulous acceptance problem} \zh{轻信接受问题}, 
-    denoted as {\color{purple} $CA_\sigma$}: 
+    denoted as {\color{purple} $Cred_\sigma$}: 
     for $a \in Arg$, 
     deciding whether $a$ is credulously accepted, 
     that is deciding whether $a$ belongs to a $\sigma$--extension of $AF$. 
@@ -1202,59 +1249,107 @@ there are three kinds of computational problems usually be considered:
 
     \item 
     the \textit{skeptical acceptance problem} \zh{谨慎接受问题}, 
-    denoted as {\color{purple} $SA_\sigma$}: 
+    denoted as {\color{purple} $Skept_\sigma$}: 
     deciding whether $a$ is skeptically  accepted, 
     that is deciding whether $a$ belongs to every $\sigma$--extension of $AF$.
     I.e.,  whether $a \in \bigcap \sigma(AF)$?
 \end{enumerate}
 
 
+Another task is deciding whether an AF provides any coherent conclusion.
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt] 
+    \item[(4)] 
+    \textit{Existence of an extension} \zh{外延存在问题}, 
+    {\color{purple} $Exists_\sigma$}: Is $\sigma(AF) \not= \emptyset$?
+
+    \item[(5)] 
+    Existence of a non--empty extension \zh{非空外延存在问题}, 
+    {\color{purple} $Exists_\sigma^{-\emptyset}$}: 
+    Does there exist a set $S \not=\emptyset$ such that $S \in\sigma(AF)$?
+\end{enumerate}
+
+
+Finally, 
+we will also consider the problem of deciding whether a semantics
+yields a unique extension for a given an AF:
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,] 
+    \item[(6)]
+    \textit{Uniqueness of the solution}, 
+    {\color{purple} $Unique_\sigma$}, 
+    Is there a unique set $X \in \sigma(AF)$, i.e., 
+    is $\sigma(AF)=\{X\}$?
+\end{enumerate}
+
+
+
 Clearly, 
-$CA_\mathcal{GR}$ and $SA_\mathcal{GR}$ are identical problems.
+$CA_\tau$ and $SA_\tau$ are identical problems with $\tau \in \{\mathcal{GR},\mathcal{ID}\}$.
 % 
 For $\sigma \in \{\mathcal{CO,GR,PR,ST}\}$, 
 the computational complexity of those problems are summarized in  table~\ref{tab: complexity} (for more detail, see \cite{Dun.Woo2009,Dvo.Dun2018}).
 
 
+
+
 \begin{table}[th!]
     \centering
-    \caption{Complexity of $Ver$, $CA$ and $SA$ problems}
+    \caption{Complexity of some problems}
     \label{tab: complexity}
     %%
     \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{c||ccc}
     \hline
 
-    semantics & $Ver_\sigma$ & $CA_\sigma$ & $SA_\sigma$   \\
+    semantics or properties & 
+    $Ver_\sigma$ & $Cred_\sigma$ & $Skept_\sigma$   \\
+    \hline
+
+    $cf$ & 
+    in \textsf{L} & 
+    in \textsf{L} & 
+    trivial \\
+
+    $ad$ & 
+    in \textsf{L} & 
+    \textsf{NP--c} & 
+    trivial \\
+
     \hline
 
     $\mathcal{CO}$ & 
-    in P & 
-    NP--c & 
-    P--c  \\
+    in \textsf{P} & 
+    \textsf{NP--c} & 
+    \textsf{P--c}  \\
 
     $\mathcal{GR}$ & 
-    in P & 
-    in P & 
-    in P  \\
+    in \textsf{P} & 
+    in \textsf{P} & 
+    in \textsf{P}  \\
 
     $\mathcal{PR}$ & 
-    coNP--c & 
-    NP--c & 
-    $\prod^p_2$--c  \\
+    \textsf{coNP--c} & 
+    \textsf{NP--c} & 
+    \textsf{$\prod^p_2$--c}  \\
 
     $\mathcal{ST}$ & 
-    in P & 
-    NP--c & 
-    coNP--c  \\
+    in \textsf{P} & 
+    \textsf{NP--c} & 
+    \textsf{coNP--c} \\
     
-    % semi-stable
-    % $\mathcal{SS}$ & 
-    % coNP--c & 
-    % $\sum^p_2$--c & 
-    % $\prod^p_2$--c  \\
+    \hline 
+
+    $\mathcal{SST}$ (semi--stable) & 
+    \textsf{coNP--c} & 
+    \textsf{$\sum^p_2$--c} & 
+    \textsf{$\prod^p_2$--c}  \\
+
     \hline
 \end{tabular}
+
+\vspace*{1em}
+\parbox{10cm}{\footnotesize
+Cf \cite[Table 1]{Dvo.Dun2018}
+}
 \end{table}
 
 
@@ -1289,9 +1384,26 @@ The grounded extension is uniquely determined and always exists \cite{Dun1995},
 and not every framework is guaranteed to produce a stable extension.
 
 It is well--known that
-the set of complete extensions forms a {\color{teal} \textit{complete semilattice}} w.r.t. $\subseteq$, 
+the set of \textbf{complete extensions} forms a {\color{teal} \textit{complete semilattice}} w.r.t. $\subseteq$, 
 where $GR(AF)$ is the meet element, 
 whereas the greatest elements are the preferred extensions.
+
+\dotfill
+
+- for any of the considered semantics $\sigma$ except stable semantics we have that $\sigma(AF) \not= \emptyset$ holds, 
+i.e., these semantics always propose at least one extension.
+
+- Grounded and ideal semantics always yield exactly one extension.
+
+-  stable, semi-stable, and stage semantics coincide for AFs with at least one stable extension.
+
+$\mathcal{ST} \subseteq \mathcal{STG} \subseteq \mathcal{NA} \subseteq cf$
+
+$\mathcal{ST} \subseteq \mathcal{SST} \subseteq \mathcal{PR} \subseteq \mathcal{CO} \subseteq ad \subseteq cf$
+
+$\mathcal{ST} \subseteq \mathcal{CF}2 \subseteq \mathcal{NA}$
+
+
 
 
 % % figure
@@ -1299,11 +1411,11 @@ whereas the greatest elements are the preferred extensions.
     \vspace{1.5em}
     \centering
     \begin{tikzcd}
-	& {\text{stable~extension}} \\
-	& \text{preferred~extension} \\
-	\text{grounded~extension} & \text{complete~extension} & \text{na\"{i}ve~extension} \\
-	& \text{admissible} \\
-	& \text{conflict-free}
+	& \text{$\mathcal{ST}$: stable~extension}  \\
+	& \text{$\mathcal{PR}$: preferred~extension} \\
+	\text{$\mathcal{GR}$: grounded~extension}^\ast  & \text{$\mathcal{CO}$: complete~extension} & \text{$\mathcal{NA}$: na\"{i}ve~extension} \\
+	& \text{$ad$: admissible} \\
+	& \text{$cf$: conflict-free}  \\
 	\arrow[from=1-2, to=2-2]
 	\arrow[curve={height=-12pt}, from=1-2, to=3-3]
 	\arrow[from=2-2, to=3-2]
@@ -1323,6 +1435,7 @@ every stable extension is a preferred extension.
 % , 
 % as well as, 
 % the grounded extension is included in any preferred extensions.
+$^\ast$ denotes this semantics is unique status semantics.
 }
 \end{figure}
 
@@ -1492,7 +1605,7 @@ every stable extension is a preferred extension.
     \hdashline
 
 
-    \multirow{3}{*}{$X$ is conflict--free} & 
+    \multirow{3}{*}{$cf(AF) \ni X$ is conflict--free} & 
     $\not\exists a,b \in X: a \att b$ 
     \hfill
     [$\emptyset$ is conflict--free]  \\
@@ -1506,7 +1619,7 @@ every stable extension is a preferred extension.
     \hdashline
 
 
-    $X$ is admissible & 
+    $ad(AF) \ni X$ is admissible & 
     $X$ is conflict--free and $X \subseteq C_\mathcal{AF} (X)$  
     \hfill
     [$\emptyset$ is admissible] \\
@@ -1546,8 +1659,8 @@ every stable extension is a preferred extension.
     
     \multirow{7}{*}{$\mathcal{ST}(AF) \ni X$ is a \textit{stable extension}
     } & 
-    $X$ is conflict--free and $X \cup X^+ = Ar$  \\
-    & $X^+ = Ar \setminus X$    \\
+    $X$ is conflict--free and $X \cup X^+ = Arg$  \\
+    & $X^+ = Arg \setminus X$    \\
     & $X$ is a preferred extension and $X \cup X^+ = Ar$  \\
     & $X$ is a complete extension and $X \cup X^+ = Ar$  \\
     & $X$ is admissible and $X \cup X^+ = Ar$  \\ 

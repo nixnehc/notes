@@ -1,8 +1,43 @@
+\section{Complexity Classes}
+
+
+
+\subsection{Hardness and Completeness}
+
+For any complexity class $\mathcal{C}$, 
+a decision problem $D$ is said to be \textit{$\mathcal{C}$--hard} if 
+\[
+    \forall F \in \mathcal{C}, F \leq_p D.
+\]
+If, 
+in addition $D \in \mathcal{C}$ then $D$ is said to be \textit{$\mathcal{C}$--complete}.
+
+
+
+So the class of NP-complete problems are those problems in NP to which any
+other problem in NP can be polynomially reduced.
+
+
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+    \item 
+    deciding if a propositional formula has a model (SAT).
+    
+    \item 
+    deciding if a graph has a path that contains every vertex exactly once (a variant of the so-called Travelling Salesperson Problem).
+
+    \item 
+    deciding if a given argument is acceptable w.r.t. Dung's stable semantics.
+\end{enumerate}
+
+
+
+
+
+
+%%=============================================================================
 \section{The Class \textsf{P}} 
 
-A \textit{complexity class}is a set of functions that can be computed within given resource bounds.
-
-
+A \textit{complexity class} is a set of functions that can be computed within given resource bounds.
 
 
 
@@ -38,6 +73,40 @@ P: polynomial.
     Using \textit{depth--first search} (DFS), 
     we can solve this problem in $O(|V|+|E|)$ steps.
 \end{example}
+
+
+\dotfill
+
+\vspace{1.5em}
+
+A problem is viewed as having an efficient algorithmic solution if it can be placed into the class \textsf{P} (\textit{polynomial--time}) of all problems that have a polynomial--time algorithm, 
+i.e., 
+an algorithm that for each instance $x$ (of size $|x|$) produces its answer after at most $|x|^k$ steps, for a fixed constant $k$.
+
+
+\textsf{P} is a rather coarse--grained class, 
+an important subclass we will consider is \textsf{L} (\textit{logarithmic space}), 
+which consists of the problems that can be solved in logarithmic space (not counting input and output) and polynomial--time.
+
+
+We consider problems in the classes \textsf{L} and \textsf{P} to be computationally \textit{tractable}.
+
+
+
+
+%%=============================================================================
+\section{The Class \textsf{NP}, \textsf{coNP} and \textsf{DP}}
+
+
+
+\dotfill
+
+
+Quantified boolean formula (QBF) 
+\[
+    Q_1 x_1 Q_2 x_2 \cdots Q_k x_k \varphi (x_1,\dots,x_k)
+\]
+where $Q_i \in \{\forall, \exists\}$ and $\exists$ is followed by $\forall$
 
 
 
