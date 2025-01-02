@@ -39,17 +39,11 @@
 \newcommand{\xmark}{\ding{55}}
 
 
-
+\usepackage{quiver}
+\usepackage{multirow}
 \usepackage[numbers,sort&compress]{natbib}
 
-\usepackage{quiver}
 
-
-
-
-\usepackage{multirow}
-
-\usepackage[yyyymmdd]{datetime} 
 
 % 附录中定理环境
 \usepackage{chngcntr}
@@ -57,7 +51,7 @@
 \AtAppendix{\counterwithin{thm}{section}}
 
 
-
+\usepackage{color,soul}
 
 
 %% 自定义
@@ -65,7 +59,7 @@
 \newcommand{\zh}[1]{{\color{gray}(\small\ttfamily #1)}} %中文注译
 \newcommand{\dashto}{\dashrightarrow}
 \newcommand{\vsim}{\;|\hspace{-1ex}\sim}
-
+\newcommand{\mydf}[1]{\textit{#1}}
 %//////////////////////////////////////////////////////////////////////////////
 %% title page:
 \title{ 

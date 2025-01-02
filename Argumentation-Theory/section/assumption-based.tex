@@ -15,9 +15,201 @@ This means we can describe arguments and attacks is structured argumentation as 
     \item 
     \textit{Argument}
 
+    is a tuple containing \textit{support} (premises) for the argument and the \textit{claim} (conclusion) of the argument.
+
+    other information: 
+    how the claim is obtained from the support
+
     \item 
     \textit{Attack}
+
+    a binary relation over arguments that denotes when one argument is in conflict with another argument. 
+
+    In structured argumentation, there is normally a formal definition for determining when this relation holds.
 \end{itemize}
+
+
+\vspace{2em}
+
+
+attack vs. defeat
+
+defeat relation which is used as the binary relation in the Dung framework.
+
+
+
+
+\vspace{1.5em}
+
+Four approaches to structured argumentation: 
+
+\begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+    \item 
+    \textbf{ABA}
+
+    ABA is a general framework for logic-based instantiation of abstract argumentation. 
+    % 
+    A specific system in ABA is based on a \textbf{deductive system}, 
+    including a set of inference \textbf{rules}. 
+    A subset of the language in the deductive system is specified as \textbf{assumptions}. 
+    % 
+    Each argument corresponds to a set of assumptions that, with the inference rules, proves a claim. 
+    
+    Attacks between arguments are obtained in ABA via a notion of \textit{`contrary' assumptions}, 
+    specifying how to contradict them. 
+    Then, an argument \textit{attacks} another if its claim contradicts (is the contrary of) some assumption in the other. 
+    
+    ABA is equipped with a family of computational mechanisms for capturing specific argumentation semantics, corresponding to semantics for abstract argumentation.
+
+
+    \item 
+    \textbf{ASPIC+ }
+
+    This framework is based on two ideas: 
+    
+    (i) conflicts between arguments are often resolved with explicit preferences;
+    and 
+    
+    (ii) arguments are built with two kinds of inference rules: 
+    (a) \textit{strict (deductive) rules}, whose premises guarantee their conclusion, 
+    and (b) \textit{defeasible rules}, whose premises only create a presumption in favour of their conclusion. 
+    
+    The second idea implies that ASPIC+ does not primarily see argumentation as inconsistency handling in a given `base' logic: 
+    conflicts between arguments may not only arise from the inconsistency of a knowledge base but also from the defeasibility of the reasoning steps in an argument.
+
+    Accordingly, in ASPIC+
+    an argument can  be attacked in three ways: 
+    on its uncertain premises or on its defeasible inferences, 
+    and the latter by either attacking its conclusion or the inference itself.
+
+    ASPIC+ is not a system but a framework for specifying systems. 
+    A main objective is to identify conditions under which instantiations of ASPIC+ satisfy logical consistency and closure properties.
+
+    \item 
+    \textbf{Defeasible Logic Programming (DeLP) }
+
+    The DeLP system is based on the language of logic programming. 
+    It includes \textit{strong negation} and \textit{default negation}. 
+    The language was extended with the addition of defeasible rules and presumptions (that represent defeasible assumptions). Its inference engine relies on the construction of arguments to support literals, and the dialectical analysis of the reasons for and against accepting a particular argument. 
+    
+    A DeLP argument, 
+    supporting a claim in the form of a literal, 
+    is considered a \textit{warrant} for that claim if all the arguments that can be posed against it are \textit{defeated}.
+    
+    Defeat comes in the form of an undefeated argument that attacks the original argument and it is also considered \textit{better} (using some particular comparison criterion) than the one supporting the original claim. 
+    
+    Attacks can be directed to the claim, on internal points of an argument, or its premises if they are presumptions of any form. 
+    
+    The full analysis leads to the construction of a \textit{dialectical tree} with the original argument in the root and whose nodes are arguments that can be marked defeated or undefeated, thus determining if the root argument is a warrant or not. 
+    
+    Four possible answers are possible for a query: 
+    Yes, if the posed query is warranted; 
+    No, if the complement of the query is warranted; 
+    Undecided, if neither the query nor its complement is warranted; 
+    and Unknown, when the query is not in the signature of the program.
+
+
+    \item 
+    \textbf{Deductive argumentation} 
+
+    This is a logic-based approach to structured argumentation. 
+    Each argument is a pair $(X, p)$ where $X$ is a set of logical formulas, called the \textit{premises}, 
+    that entails $p$, the \textit{claim}, where entailment is specified by the choice of base logic (e.g. classical logic, modal logic, description logic, temporal logic, conditional logic, etc). 
+    
+    Various options are available for specifying when one argument attacks another (e.g. argument $a$ \textit{rebuts} argument $b$ when the claim of $a$ is the negation of the claim of $b$). 
+    
+    If we are then to construct an \textit{argument graph} based on the arguments that can be constructed from a knowledge base, 
+    there are various options available for selecting which arguments and attacks to include in the argument graph (e.g. being exhaustive in including all arguments and counterarguments that can be constructed from a knowledge base).
+\end{enumerate}
+
+
+
+The above four approaches have many things in common but also differ at several points.
+
+
+
+%%=============================================================================
+\clearpage
+\section{The ASPIC+ framework}
+
+
+The ASPIC+ framework is based on two ideas: 
+
+the first is that {\color{purple} \textbf{conflicts} between arguments are often resolved with \textit{explicit preferences}}, 
+
+and the second is that {\color{purple} arguments are built with two kinds of inference rules}: 
+\textit{strict}, or \textit{deductive rules}, whose premises guarantee their conclusion, 
+and \textit{defeasible rules}, whose premises only create a presumption in favour of their conclusion. 
+
+Accordingly, 
+arguments can in ASPIC+ be attacked in three ways: on their uncertain premises, or on their defeasible inferences, or on the conclusions of their defeasible inferences. 
+
+ASPIC+ is not a system but a framework for specifying systems. 
+A main objective of the study of the ASPIC+ framework is to identify conditions under which instantiations of the framework satisfy logical consistency and closure properties.
+
+
+\dotfill
+
+ASPIC+ is meant to generate abstract argumentation frameworks (AFs) in the sense of Dung (1995).
+
+\vspace{1.5em}
+
+Historically, 
+the ASPIC+ framework originates from the European ASPIC project that ran from 2004 to 2007, 
+
+
+
+
+\vspace{1.5em}
+
+how can arguments be built, i.e. how can claims be supported with grounds,
+
+how can arguments be attacked?
+
+
+
+\vspace{1.5em}
+
+
+ASPIC+ arguments can be constructed from \textit{fallible} and \textit{infallible} premises (respectively called \textit{ordinary} and \textit{axiom} premises), 
+and strict and defeasible inference rules, 
+and that arguments can be attacked on their ordinary premises, 
+the conclusions of defeasible inference rules, and the defeasible inference steps themselves.
+
+
+
+
+a key feature of the ASPIC+ framework is that it accommodates the use of \textit{preferences} over arguments: 
+% 
+an attack from one argument to another only succeeds (as a defeat) if the attacked argument is not stronger than (strictly preferred to) the attacking argument,
+according to some given preference relation.
+
+
+
+
+%%-------------------------------------
+\subsection{Formal definition}
+
+
+An $AF$ is a pair $(Arg,\att)$ where $Arg$ is a set of arguments and $\att$ is a binary relation of \textit{defeat}.
+% 
+We say that \textit{$a$ strictly defeats $b$} if $a \att b$ while $b$ does not defeat $a$.
+
+
+\begin{df}[Argumentation system]
+    An \textit{argumentation system} is a triple 
+    \[
+        AS = (\mathcal{L},\mathcal{R},n)
+    \]    
+    where 
+    \begin{enumerate}[itemsep=5pt,parsep=5pt,leftmargin=3em,topsep=5pt,label=(\arabic*)] %% or label = \alph*, \roman*
+        \item 
+        $\mathcal{L}$ is a logical language closed under neg
+    \end{enumerate}
+\end{df}
+
+
+
 
 
 
@@ -29,7 +221,7 @@ This means we can describe arguments and attacks is structured argumentation as 
 
 %%=============================================================================
 \clearpage
-\section{Assumption--based Argumentation}
+\section{Assumption--based Argumentation, ABA}
 
 
 Assumption--Based Argumentation (ABA) is a form of \textbf{structured argumentation}, 
